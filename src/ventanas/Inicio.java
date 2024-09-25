@@ -10,11 +10,22 @@ package ventanas;
  */
 public class Inicio extends javax.swing.JFrame {
 
-    int ID =0;
+    int ID = 1;
+    String[] opciones = {
+        "Sumadora",
+        "Conversor",
+        "Moneda",
+        "Información de la app"
+    };
+    int Utilidades = opciones.length;
+
     public Inicio() {
         initComponents();
-        
-        ButtonAccion.setText("Calculadora");
+
+        setTitle("Inicio");
+        this.setLocationRelativeTo(null);
+
+        actualizarBoton();
     }
 
     /**
@@ -26,13 +37,29 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ButtonAccion = new javax.swing.JButton();
+        BtnAccion = new javax.swing.JButton();
+        BtnRetroceder = new javax.swing.JButton();
+        BtnAvanzar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ButtonAccion.addActionListener(new java.awt.event.ActionListener() {
+        BtnAccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAccionActionPerformed(evt);
+                BtnAccionActionPerformed(evt);
+            }
+        });
+
+        BtnRetroceder.setText("<");
+        BtnRetroceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRetrocederActionPerformed(evt);
+            }
+        });
+
+        BtnAvanzar.setText(">");
+        BtnAvanzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvanzarActionPerformed(evt);
             }
         });
 
@@ -41,22 +68,31 @@ public class Inicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(ButtonAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BtnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(ButtonAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(BtnAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAccionActionPerformed
+    private void BtnAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAccionActionPerformed
         switch (ID) {
             case 0:
                 this.dispose();
@@ -65,7 +101,36 @@ public class Inicio extends javax.swing.JFrame {
             default:
                 throw new AssertionError();
         }
-    }//GEN-LAST:event_ButtonAccionActionPerformed
+    }//GEN-LAST:event_BtnAccionActionPerformed
+
+    private void BtnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRetrocederActionPerformed
+        if (ID > 1) {
+            ID -= 1;
+        } else {
+            ID = Utilidades;
+        }
+
+        actualizarBoton();
+    }//GEN-LAST:event_BtnRetrocederActionPerformed
+
+    private void BtnAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvanzarActionPerformed
+        if (ID < Utilidades) {
+            ID += 1;
+        } else {
+            ID = 1;
+        }
+
+        actualizarBoton();
+    }//GEN-LAST:event_BtnAvanzarActionPerformed
+
+    private void actualizarBoton() {
+
+        if (ID >= 1 && ID <= opciones.length) {
+            BtnAccion.setText(opciones[ID - 1]);
+        } else {
+            throw new IllegalArgumentException("ID no válido: " + ID);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -103,6 +168,8 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonAccion;
+    private javax.swing.JButton BtnAccion;
+    private javax.swing.JButton BtnAvanzar;
+    private javax.swing.JButton BtnRetroceder;
     // End of variables declaration//GEN-END:variables
 }
