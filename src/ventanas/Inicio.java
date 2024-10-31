@@ -4,6 +4,8 @@
  */
 package ventanas;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author MINEDUCYT
@@ -11,20 +13,19 @@ package ventanas;
 public class Inicio extends javax.swing.JFrame {
 
     int ID = 1;
-    String[] opciones = {
-        "Sumadora",
-        "Conversor",
-        "Moneda",
-        "Información de la app"
+    OpcionVentana[] opcionesVentanas = {
+        new OpcionVentana("Calculadora", "Calculadora sencilla", Calculadora.class),
+        new OpcionVentana("Conversor", "Conversor de unidades", Conversor.class),
+        new OpcionVentana("Moneda", "Cara o Cruz", Moneda.class),
+        new OpcionVentana("Visualizador", "Visualizador de HTML", Visualizador.class),
+        new OpcionVentana("Encuentra", "Adivina el numero que genero la pc", Encontrar.class),
+        new OpcionVentana("Información de la app", "Notas de Versión", Info.class)
     };
-    int Utilidades = opciones.length;
 
     public Inicio() {
         initComponents();
-
         setTitle("Inicio");
         this.setLocationRelativeTo(null);
-
         actualizarBoton();
     }
 
@@ -40,6 +41,7 @@ public class Inicio extends javax.swing.JFrame {
         BtnAccion = new javax.swing.JButton();
         BtnRetroceder = new javax.swing.JButton();
         BtnAvanzar = new javax.swing.JButton();
+        LabelDescripcion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +65,10 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        LabelDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelDescripcion.setText("Descripción de la app");
+        LabelDescripcion.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,36 +76,44 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(BtnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BtnAccion, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(LabelDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAccionActionPerformed
-        switch (ID) {
-            case 0:
-                this.dispose();
-                new Calculadora().setVisible(true);
-                break;
-            default:
-                throw new AssertionError();
+        if (ID >= 1 && ID <= opcionesVentanas.length) {
+            OpcionVentana opcion = opcionesVentanas[ID - 1];
+            this.dispose();
+            try {
+                JFrame nuevaVentana = (JFrame) opcion.getVentanaClase().getDeclaredConstructor().newInstance();
+                nuevaVentana.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            throw new IllegalArgumentException("ID no válido: " + ID);
         }
     }//GEN-LAST:event_BtnAccionActionPerformed
 
@@ -107,26 +121,24 @@ public class Inicio extends javax.swing.JFrame {
         if (ID > 1) {
             ID -= 1;
         } else {
-            ID = Utilidades;
+            ID = opcionesVentanas.length;
         }
-
         actualizarBoton();
     }//GEN-LAST:event_BtnRetrocederActionPerformed
 
     private void BtnAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvanzarActionPerformed
-        if (ID < Utilidades) {
+        if (ID < opcionesVentanas.length) {
             ID += 1;
         } else {
             ID = 1;
         }
-
         actualizarBoton();
     }//GEN-LAST:event_BtnAvanzarActionPerformed
 
     private void actualizarBoton() {
-
-        if (ID >= 1 && ID <= opciones.length) {
-            BtnAccion.setText(opciones[ID - 1]);
+        if (ID >= 1 && ID <= opcionesVentanas.length) {
+            BtnAccion.setText(opcionesVentanas[ID - 1].getNombre());
+            LabelDescripcion.setText(opcionesVentanas[ID - 1].getDescripcion());
         } else {
             throw new IllegalArgumentException("ID no válido: " + ID);
         }
@@ -167,9 +179,35 @@ public class Inicio extends javax.swing.JFrame {
         });
     }
 
+    public class OpcionVentana {
+
+        private String nombre;
+        private String descripcion;
+        private Class<?> ventanaClase;
+
+        public OpcionVentana(String nombre, String descripción, Class<?> ventanaClase) {
+            this.nombre = nombre;
+            this.descripcion = descripción;
+            this.ventanaClase = ventanaClase;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public String getDescripcion() {
+            return descripcion;
+        }
+
+        public Class<?> getVentanaClase() {
+            return ventanaClase;
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAccion;
     private javax.swing.JButton BtnAvanzar;
     private javax.swing.JButton BtnRetroceder;
+    private javax.swing.JLabel LabelDescripcion;
     // End of variables declaration//GEN-END:variables
 }
