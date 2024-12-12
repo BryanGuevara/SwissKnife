@@ -4,7 +4,10 @@
  */
 package ventanas;
 
+import java.awt.Image;
 import java.util.Random;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,13 +28,23 @@ public class Encontrar extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
 
-        num = ran.nextInt(101);
+        num = ran.nextInt(100) + 1;
 
         intento.addColumn("Intento");
+        intento.addColumn("Estado");
         intento.addColumn("Numero");
 
         TableIntentos.setModel(intento);
         TableIntentos.setEnabled(false);
+        jScrollPane1.setOpaque(false); 
+        jScrollPane1.getViewport().setOpaque(false);  
+        jScrollPane1.setBorder(null);
+
+        ImageIcon wallpaper = new ImageIcon("src/img/Encontrar.jpg");
+        Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
+                LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));
+
+        LabelWallpaper.setIcon(icon);
     }
 
     /**
@@ -48,10 +61,12 @@ public class Encontrar extends javax.swing.JFrame {
         TxtRespuesta = new javax.swing.JTextField();
         BtnEnviar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        LabelRespuesta = new javax.swing.JLabel();
         BtnVolver1 = new javax.swing.JButton();
+        TxtResultado = new javax.swing.JTextField();
+        LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TableIntentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,22 +96,38 @@ public class Encontrar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableIntentos);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 6, 220, 320));
+
+        TxtRespuesta.setBackground(new java.awt.Color(56, 56, 56));
+        TxtRespuesta.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        TxtRespuesta.setForeground(new java.awt.Color(255, 255, 255));
+        TxtRespuesta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtRespuesta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(TxtRespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 170, 57));
+
+        BtnEnviar.setBackground(new java.awt.Color(56, 56, 56));
+        BtnEnviar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BtnEnviar.setForeground(new java.awt.Color(255, 255, 255));
         BtnEnviar.setText("Enviar");
+        BtnEnviar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEnviarActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 80, 57));
 
+        jButton1.setBackground(new java.awt.Color(56, 56, 56));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Reinicio");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        LabelRespuesta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelRespuesta.setText("Estoy Pensando un numero entre 1 y 100");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 70, 57));
 
         BtnVolver1.setText("Volver");
         BtnVolver1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,49 +135,17 @@ public class Encontrar extends javax.swing.JFrame {
                 BtnVolver1ActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 75, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(TxtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtnEnviar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1))
-                            .addComponent(LabelRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BtnVolver1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtnVolver1)
-                        .addGap(52, 52, 52)
-                        .addComponent(LabelRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BtnEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                            .addComponent(TxtRespuesta)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(81, 81, 81))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
+        TxtResultado.setEditable(false);
+        TxtResultado.setBackground(new java.awt.Color(56, 56, 56));
+        TxtResultado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        TxtResultado.setForeground(new java.awt.Color(255, 255, 255));
+        TxtResultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtResultado.setText("Estoy pensando un numero entre 1 y 100");
+        TxtResultado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(TxtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 122, 350, 40));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 600, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -160,36 +159,42 @@ public class Encontrar extends javax.swing.JFrame {
                 return;
             }
 
+            if (intento.getRowCount() >= 18) {
+                intento.removeRow(0);
+            }
+
             try {
                 int resp = Integer.parseInt(input);
 
                 if (resp < num) {
-                    LabelRespuesta.setText("No, el número en el que pienso es más alto que " + resp);
+                    TxtResultado.setText("El número en el que pienso es más alto que " + resp);
                     x++;
-                    Object[] nuevaFila = {x, resp};
+                    Object[] nuevaFila = {x, "Mayor", resp};
                     intento.addRow(nuevaFila);
                     TxtRespuesta.setText("");
                 } else if (resp > num) {
-                    LabelRespuesta.setText("No, el número en el que pienso es más bajo que " + resp);
+                    TxtResultado.setText("El número en el que pienso es más bajo que " + resp);
                     x++;
-                    Object[] nuevaFila = {x, resp};
+                    Object[] nuevaFila = {x, "Menor", resp};
                     intento.addRow(nuevaFila);
                     TxtRespuesta.setText("");
                 } else {
                     ban = 1;
                     x++;
-                    LabelRespuesta.setText("Felicidades el numero era el " + resp + ", Numero de Intentos: " + x);
-                    Object[] nuevaFila = {x, resp};
+                    TxtResultado.setText("Felicidades el numero era el " + resp + ", Numero de Intentos: " + x);
+                    Object[] nuevaFila = {x, "Era el", resp};
                     intento.addRow(nuevaFila);
                     TxtRespuesta.setText("");
+                    TxtRespuesta.setEditable(false);
+                    BtnEnviar.setEnabled(false);
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Solo se aceptan números.");
-                    TxtRespuesta.setText("");
+                TxtRespuesta.setText("");
             }
         } else {
             JOptionPane.showMessageDialog(null, "El número ya fue adivinado, reinicie la partida.");
-                    TxtRespuesta.setText("");
+            TxtRespuesta.setText("");
         }
 
     }//GEN-LAST:event_BtnEnviarActionPerformed
@@ -199,7 +204,7 @@ public class Encontrar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolver1ActionPerformed
-       new  Inicio().setVisible(true);
+        new Inicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnVolver1ActionPerformed
 
@@ -243,20 +248,23 @@ public class Encontrar extends javax.swing.JFrame {
             intento.removeRow(0);
         }
 
+        TxtRespuesta.setEditable(true);
+        BtnEnviar.setEnabled(true);
         ban = 0;
         x = 0;
         TxtRespuesta.setText("");
-        num = ran.nextInt(100);
+        num = ran.nextInt(100) + 1;
 
-        LabelRespuesta.setText("Estoy Pensando un numero entre 1 y 100");
+        TxtResultado.setText("Estoy Pensando un numero entre 1 y 100");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEnviar;
     private javax.swing.JButton BtnVolver1;
-    private javax.swing.JLabel LabelRespuesta;
+    private javax.swing.JLabel LabelWallpaper;
     private javax.swing.JTable TableIntentos;
     private javax.swing.JTextField TxtRespuesta;
+    private javax.swing.JTextField TxtResultado;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

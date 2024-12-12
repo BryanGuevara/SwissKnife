@@ -115,7 +115,7 @@ public class Info extends javax.swing.JFrame {
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Swiff Knife Alfa 0.1\n- Creación de la pestaña inicio\n- Adicion de \"Calculadora\"\n- Adicion de \"Conversor\"\n- Adicion de \"Moneda\"\n- Adicion de \"Información de la aplicación\"\n");
+        jTextArea1.setText("Swiff Knife Beta 0.1\n- Adicion de icono a las funciones en Inicio\n- Adicion de wallpapers dinamicos en estaña \"Inicio\"\n\n---\nSwiff Knife Alfa 0.0.1\n- Creación de la pestaña inicio\n- Adicion de \"Calculadora\"\n- Adicion de \"Conversor\"\n- Adicion de \"Moneda\"\n- Adicion de \"Información de la aplicación\"");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);

@@ -4,6 +4,9 @@
  */
 package ventanas;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -14,17 +17,17 @@ public class Inicio extends javax.swing.JFrame {
 
     int ID = 1;
     OpcionVentana[] opcionesVentanas = {
-        new OpcionVentana("Calculadora", "Calculadora sencilla", Calculadora.class),
-        new OpcionVentana("Conversor", "Conversor de unidades", Conversor.class),
-        new OpcionVentana("Moneda", "Cara o Cruz", Moneda.class),
-        new OpcionVentana("Visualizador", "Visualizador de HTML", Visualizador.class),
-        new OpcionVentana("Encuentra", "Adivina el numero que genero la pc", Encontrar.class),
-        new OpcionVentana("Información de la app", "Notas de Versión", Info.class)
+        new OpcionVentana("Calculadora", "Calculadora sencilla", "src/img/Calculadora.jpg", "src/img/calculadoraIcon.png", Calculadora.class),
+        new OpcionVentana("Conversor", "Conversor de unidades", "src/img/Medidas.jpg", "src/img/medidasIcon.png", Conversor.class),
+        new OpcionVentana("Moneda", "Cara o Cruz", "src/img/Coin.jpg", "src/img/coinIco.png", Moneda.class),
+        new OpcionVentana("Visualizador", "Visualizador de HTML", "src/img/Visualizador.jpg", "src/img/visualizadorIco.png", Visualizador.class),
+        new OpcionVentana("Encuentra", "Adivina el numero que genero la pc", "src/img/Encontrar.jpg", "src/img/encontrarIco.png", Encontrar.class),
+        new OpcionVentana("Repetidor", "Repite una frase muechas veces", "src/img/Repetir.jpg", "src/img/Repetir.png", Repetidor.class),
+        new OpcionVentana("Información de la app", "Notas de Versión", "src/img/Info.jpg", "", Info.class)
     };
 
     public Inicio() {
         initComponents();
-        setTitle("Inicio");
         this.setLocationRelativeTo(null);
         actualizarBoton();
     }
@@ -41,63 +44,53 @@ public class Inicio extends javax.swing.JFrame {
         BtnAccion = new javax.swing.JButton();
         BtnRetroceder = new javax.swing.JButton();
         BtnAvanzar = new javax.swing.JButton();
-        LabelDescripcion = new javax.swing.JLabel();
+        TxtDescripcion = new javax.swing.JTextField();
+        LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnAccion.setBackground(new java.awt.Color(52, 52, 52));
+        BtnAccion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        BtnAccion.setForeground(new java.awt.Color(255, 255, 255));
         BtnAccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAccionActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnAccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 270, 169));
 
+        BtnRetroceder.setBackground(new java.awt.Color(52, 52, 52));
+        BtnRetroceder.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        BtnRetroceder.setForeground(new java.awt.Color(255, 255, 255));
         BtnRetroceder.setText("<");
         BtnRetroceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRetrocederActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnRetroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 130, 60));
 
+        BtnAvanzar.setBackground(new java.awt.Color(52, 52, 52));
+        BtnAvanzar.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        BtnAvanzar.setForeground(new java.awt.Color(255, 255, 255));
         BtnAvanzar.setText(">");
         BtnAvanzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvanzarActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnAvanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 130, 60));
 
-        LabelDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelDescripcion.setText("Descripción de la app");
-        LabelDescripcion.setToolTipText("");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LabelDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(BtnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(BtnAccion, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addComponent(LabelDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnAccion, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        TxtDescripcion.setEditable(false);
+        TxtDescripcion.setBackground(new java.awt.Color(52, 52, 52));
+        TxtDescripcion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        TxtDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        TxtDescripcion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtDescripcion.setText("Descripcion de la app");
+        TxtDescripcion.setBorder(null);
+        getContentPane().add(TxtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 270, 30));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,7 +131,20 @@ public class Inicio extends javax.swing.JFrame {
     private void actualizarBoton() {
         if (ID >= 1 && ID <= opcionesVentanas.length) {
             BtnAccion.setText(opcionesVentanas[ID - 1].getNombre());
-            LabelDescripcion.setText(opcionesVentanas[ID - 1].getDescripcion());
+            TxtDescripcion.setText(opcionesVentanas[ID - 1].getDescripcion());
+            this.setTitle(opcionesVentanas[ID - 1].getNombre());
+
+            ImageIcon wallpaper = new ImageIcon(opcionesVentanas[ID - 1].getWallpaper());
+            Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
+                    LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));
+
+            LabelWallpaper.setIcon(icon);
+
+            ImageIcon botonIcono = new ImageIcon(opcionesVentanas[ID - 1].getIcon());
+            Icon iconoEscalado = new ImageIcon(botonIcono.getImage().getScaledInstance(
+                    60, 60, Image.SCALE_DEFAULT));
+
+            BtnAccion.setIcon(iconoEscalado);
         } else {
             throw new IllegalArgumentException("ID no válido: " + ID);
         }
@@ -183,11 +189,15 @@ public class Inicio extends javax.swing.JFrame {
 
         private String nombre;
         private String descripcion;
+        private String wallpaper;
+        private String icon;
         private Class<?> ventanaClase;
 
-        public OpcionVentana(String nombre, String descripción, Class<?> ventanaClase) {
+        public OpcionVentana(String nombre, String descripción, String wallpaper, String icon, Class<?> ventanaClase) {
             this.nombre = nombre;
             this.descripcion = descripción;
+            this.wallpaper = wallpaper;
+            this.icon = icon;
             this.ventanaClase = ventanaClase;
         }
 
@@ -199,6 +209,14 @@ public class Inicio extends javax.swing.JFrame {
             return descripcion;
         }
 
+        public String getWallpaper() {
+            return wallpaper;
+        }
+
+        public String getIcon() {
+            return icon;
+        }
+
         public Class<?> getVentanaClase() {
             return ventanaClase;
         }
@@ -208,6 +226,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton BtnAccion;
     private javax.swing.JButton BtnAvanzar;
     private javax.swing.JButton BtnRetroceder;
-    private javax.swing.JLabel LabelDescripcion;
+    private javax.swing.JLabel LabelWallpaper;
+    private javax.swing.JTextField TxtDescripcion;
     // End of variables declaration//GEN-END:variables
 }

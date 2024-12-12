@@ -4,9 +4,12 @@
  */
 package ventanas;
 
-import java.text.DecimalFormat;
+import java.awt.Image;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,59 +19,84 @@ public class Conversor extends javax.swing.JFrame {
 
     private static final Map<Integer, Double> unidadMedidas = new HashMap<>();
     private static final Map<Integer, Double> unidadPeso = new HashMap<>();
+    private static final Map<Integer, Double> unidadTiempo = new HashMap<>();
 
-   static {
-    unidadMedidas.put(1, 0.000000001);    // Nanómetro
-    unidadMedidas.put(2, 0.000001);       // Micrómetro
-    unidadMedidas.put(3, 0.001);          // Milímetro
-    unidadMedidas.put(4, 0.01);           // Centímetro
-    unidadMedidas.put(5, 0.0833);         // Svara (aproximado)
-    unidadMedidas.put(6, 0.0254);         // Pulgada
-    unidadMedidas.put(7, 0.004233);       // Pica
-    unidadMedidas.put(8, 0.3048);         // Pie
-    unidadMedidas.put(9, 0.4572);         // Codo
-    unidadMedidas.put(10, 0.9144);        // Yarda
-    unidadMedidas.put(11, 1.0);           // Metro
-    unidadMedidas.put(12, 2.4384);        // Braza
-    unidadMedidas.put(13, 10.0);          // Decámetro
-    unidadMedidas.put(14, 100.0);         // Hectómetro
-    unidadMedidas.put(15, 201.168);       // Furlong
-    unidadMedidas.put(16, 1067.0);        // Versta
-    unidadMedidas.put(17, 1000.0);        // Kilómetro
-    unidadMedidas.put(18, 1609.344);      // Milla terrestre
-    unidadMedidas.put(19, 1609.344);      // Milla
-    unidadMedidas.put(20, 0.0254);        // Mil (milésima de pulgada)
-    unidadMedidas.put(21, 1852.0);        // Milla náutica
-    unidadMedidas.put(22, 4828.032);      // Liga
-    unidadMedidas.put(23, 5556.0);        // League (marítima)
-    unidadMedidas.put(24, 9.461e15);      // Año luz
-}
+    static {
+        unidadMedidas.put(1, 0.000000001);    // Nanómetro
+        unidadMedidas.put(2, 0.000001);       // Micrómetro
+        unidadMedidas.put(3, 0.001);          // Milímetro
+        unidadMedidas.put(4, 0.01);           // Centímetro - Medida Base
+        unidadMedidas.put(5, 0.0833);         // Svara (aproximado)
+        unidadMedidas.put(6, 0.0254);         // Pulgada
+        unidadMedidas.put(7, 0.004233);       // Pica
+        unidadMedidas.put(8, 0.3048);         // Pie
+        unidadMedidas.put(9, 0.4572);         // Codo
+        unidadMedidas.put(10, 0.9144);        // Yarda
+        unidadMedidas.put(11, 1.0);           // Metro
+        unidadMedidas.put(12, 2.4384);        // Braza
+        unidadMedidas.put(13, 10.0);          // Decámetro
+        unidadMedidas.put(14, 100.0);         // Hectómetro
+        unidadMedidas.put(15, 201.168);       // Furlong
+        unidadMedidas.put(16, 1067.0);        // Versta
+        unidadMedidas.put(17, 1000.0);        // Kilómetro
+        unidadMedidas.put(18, 1609.344);      // Milla terrestre
+        unidadMedidas.put(19, 1609.344);      // Milla
+        unidadMedidas.put(20, 0.0254);        // Mil (milésima de pulgada)
+        unidadMedidas.put(21, 1852.0);        // Milla náutica
+        unidadMedidas.put(22, 4828.032);      // Liga
+        unidadMedidas.put(23, 5556.0);        // League (marítima)
+        unidadMedidas.put(24, 9.461e15);      // Año luz
+    }
 
-static {
-    unidadPeso.put(1, 0.00000000003527396);       // Picogramo (pg)
-    unidadPeso.put(2, 0.00000003527396);          // Nanogramo (ng)
-    unidadPeso.put(3, 0.00003527396);             // Microgramo (µg)
-    unidadPeso.put(4, 0.00003527396);             // Miligramo (mg)
-    unidadPeso.put(5, 0.0022046226218);           // Gramo (g)
-    unidadPeso.put(6, 0.0000000022046226218);     // Microtonelada
-    unidadPeso.put(7, 0.0000022046226218);        // Militonelada
-    unidadPeso.put(8, 1.0);                       // Libra (lb) - unidad base
-    unidadPeso.put(9, 2.2046226218);              // Kilogramo (kg)
-    unidadPeso.put(10, 2.2046226218);             // Libra métrica (kg)
-    unidadPeso.put(11, 25.0);                     // Arroba
-    unidadPeso.put(12, 100.0);                    // Quintal corto (cwt)
-    unidadPeso.put(13, 1102.311);                 // Media tonelada (half ton)
-    unidadPeso.put(14, 2000.0);                   // Tonelada corta (short ton)
-    unidadPeso.put(15, 2204.6226218);             // Tonelada métrica (t)
-    unidadPeso.put(16, 2240.0);                   // Tonelada larga (long ton)
-    unidadPeso.put(17, 35273.96195);              // Tonelada
-    unidadPeso.put(18, 220462.2622);              // Kilotonelada (kt)
-    unidadPeso.put(19, 2204622.6218);             // Megatonelada (Mt)
-    unidadPeso.put(20, 22046226.218);             // Gigatonelada (Gt)
-    unidadPeso.put(21, 220462262.18);             // Teratonelada (Tt)
-    unidadPeso.put(22, 2204622621.8);             // Petatonelada (Pt)
-    unidadPeso.put(23, 22046226218.0);            // Exatonelada (Et)
-}
+    static {
+        unidadPeso.put(1, 0.00000000003527396);       // Picogramo (pg)
+        unidadPeso.put(2, 0.00000003527396);          // Nanogramo (ng)
+        unidadPeso.put(3, 0.00003527396);             // Microgramo (µg)
+        unidadPeso.put(4, 0.00003527396);             // Miligramo (mg)
+        unidadPeso.put(5, 0.0022046226218);           // Gramo (g)
+        unidadPeso.put(6, 0.0000000022046226218);     // Microtonelada
+        unidadPeso.put(7, 0.0000022046226218);        // Militonelada
+        unidadPeso.put(8, 1.0);                       // Libra (lb) - Medida Base
+        unidadPeso.put(9, 2.2046226218);              // Kilogramo (kg)
+        unidadPeso.put(10, 2.2046226218);             // Libra métrica (kg)
+        unidadPeso.put(11, 25.0);                     // Arroba
+        unidadPeso.put(12, 77.0);                     // Talento
+        unidadPeso.put(13, 100.0);                    // Quintal corto (cwt)
+        unidadPeso.put(14, 1102.311);                 // Media tonelada (half ton)
+        unidadPeso.put(15, 2000.0);                   // Tonelada corta (short ton)
+        unidadPeso.put(16, 2204.6226218);             // Tonelada métrica (t)
+        unidadPeso.put(17, 2240.0);                   // Tonelada larga (long ton)
+        unidadPeso.put(18, 35273.96195);              // Tonelada
+        unidadPeso.put(19, 220462.2622);              // Kilotonelada (kt)
+        unidadPeso.put(20, 2204622.6218);             // Megatonelada (Mt)
+        unidadPeso.put(21, 22046226.218);             // Gigatonelada (Gt)
+        unidadPeso.put(22, 220462262.18);             // Teratonelada (Tt)
+        unidadPeso.put(23, 2204622621.8);             // Petatonelada (Pt)
+        unidadPeso.put(24, 22046226218.0);            // Exatonelada (Et)
+    }
+
+    static {
+        unidadTiempo.put(1, 1e-15);         // Femtosegundo
+        unidadTiempo.put(2, 1e-12);         // Picosegundo
+        unidadTiempo.put(3, 1e-9);          // Nanosegundo
+        unidadTiempo.put(4, 1e-6);          // Microsegundo
+        unidadTiempo.put(5, 1e-3);          // Milisegundo
+        unidadTiempo.put(6, 1.0);           // Segundo - Medida Base
+        unidadTiempo.put(7, 60.0);          // Minuto
+        unidadTiempo.put(8, 1800.0);        // Media hora (30 minutos)
+        unidadTiempo.put(9, 3600.0);        // Hora
+        unidadTiempo.put(10, 43200.0);      // Medio día (12 horas)
+        unidadTiempo.put(11, 86400.0);      // Día
+        unidadTiempo.put(12, 604800.0);     // Semana
+        unidadTiempo.put(13, 2.592e6);      // Mes (30 días, aproximado)
+        unidadTiempo.put(14, 3.1536e7);     // Año (365 días)
+        unidadTiempo.put(15, 1.57788e8);    // Lustro (5 años)
+        unidadTiempo.put(16, 3.1536e8);     // Década (10 años)
+        unidadTiempo.put(17, 3.1536e9);     // Siglo (100 años)
+        unidadTiempo.put(18, 3.1536e10);    // Milenio (1000 años)
+        unidadTiempo.put(19, 3.1536e13);    // Mega-año (millón de años)
+        unidadTiempo.put(20, 3.1536e16);    // Milenio galáctico (1000 millones de años)
+    }
 
     public Conversor() {
         initComponents();
@@ -77,9 +105,21 @@ static {
         setTitle("Conversor");
         this.setLocationRelativeTo(null);
 
+        Reinicio();
+        
+        Medidas.setOpaque(false);
+        Pesos.setOpaque(false);
+        Tiempo.setOpaque(false);
+
         Medidas.setVisible(true);
         Pesos.setVisible(false);
+        Tiempo.setVisible(false);
+        
+        ImageIcon wallpaper = new ImageIcon("src/img/Medidas.jpg");
+        Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
+                LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));
 
+        LabelWallpaper.setIcon(icon);
     }
 
     /**
@@ -95,35 +135,45 @@ static {
         CmbDestinoM = new javax.swing.JComboBox<>();
         CmbOrigenM = new javax.swing.JComboBox<>();
         TxtOrigenM = new javax.swing.JTextField();
-        TxtDestinoM = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TxtDestinoM = new javax.swing.JTextArea();
         Pesos = new javax.swing.JPanel();
         CmbDestinoP = new javax.swing.JComboBox<>();
         CmbOrigenP = new javax.swing.JComboBox<>();
         TxtOrigenP = new javax.swing.JTextField();
-        TxtDestinoP = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TxtDestinoP = new javax.swing.JTextArea();
+        Tiempo = new javax.swing.JPanel();
+        CmbDestinoT = new javax.swing.JComboBox<>();
+        CmbOrigenT = new javax.swing.JComboBox<>();
+        TxtOrigenT = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TxtDestinoT = new javax.swing.JTextArea();
+        BtnTiempo = new javax.swing.JButton();
         BtnPesos = new javax.swing.JButton();
         BtnMedidas = new javax.swing.JButton();
         BtnVolver1 = new javax.swing.JButton();
+        LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CmbDestinoM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nanómetro (1 × 10^-9 m)", "Micrómetro (1 × 10^-6 m)", "Milímetro (0.001 m)", "Centímetro (0.01 m)", "Svara (métrica) (0.025 m)", "Pulgada (0.0254 m)", "Pica (0.004217 m)", "Pie (0.3048 m)", "Codo (0.4572 m)", "Yarda (0.9144 m)", "Metro (1 m)", "Braza (1.8288 m)", "Decámetro (10 m)", "Hectómetro (100 m)", "Furlong (201.168 m)", "Versta (1.0668 × 10^3 m)", "Kilómetro (1 × 10^3 m)", "Milla terrestre (1.609 × 10^3 m)", "Milla (1.609 × 10^3 m)", "Milha (mil) (1.609 × 10^3 m)", "Milla náutica (1.852 × 10^3 m)", "Liga (4.828 × 10^6 m)", "League (marítima) (5.556 × 10^6 m)", "Año luz (9.461 × 10^15 m)" }));
-        CmbDestinoM.setSelectedIndex(3);
+        CmbDestinoM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nanómetro", "Micrómetro", "Milímetro", "Centímetro", "Svara (métrica)", "Pulgada", "Pica", "Pie", "Codo", "Yarda", "Metro", "Braza", "Decámetro", "Hectómetro", "Furlong", "Versta", "Kilómetro", "Milla terrestre", "Milla", "Milha (mil)", "Milla náutica", "Liga", "League (marítima)", "Año luz" }));
         CmbDestinoM.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CmbDestinoMItemStateChanged(evt);
             }
         });
 
-        CmbOrigenM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nanómetro (1 × 10^-9 m)", "Micrómetro (1 × 10^-6 m)", "Milímetro (0.001 m)", "Centímetro (0.01 m)", "Svara (métrica) (0.025 m)", "Pulgada (0.0254 m)", "Pica (0.004217 m)", "Pie (0.3048 m)", "Codo (0.4572 m)", "Yarda (0.9144 m)", "Metro (1 m)", "Braza (1.8288 m)", "Decámetro (10 m)", "Hectómetro (100 m)", "Furlong (201.168 m)", "Versta (1.0668 × 10^3 m)", "Kilómetro (1 × 10^3 m)", "Milla terrestre (1.609 × 10^3 m)", "Milla (1.609 × 10^3 m)", "Milha (mil) (1.609 × 10^3 m)", "Milla náutica (1.852 × 10^3 m)", "Liga (4.828 × 10^6 m)", "League (marítima) (5.556 × 10^6 m)", "Año luz (9.461 × 10^15 m)" }));
-        CmbOrigenM.setSelectedIndex(3);
+        CmbOrigenM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nanómetro", "Micrómetro", "Milímetro", "Centímetro", "Svara (métrica)", "Pulgada", "Pica", "Pie", "Codo", "Yarda", "Metro", "Braza", "Decámetro", "Hectómetro", "Furlong", "Versta", "Kilómetro", "Milla terrestre", "Milla", "Milha (mil)", "Milla náutica", "Liga", "League (marítima)", "Año luz" }));
         CmbOrigenM.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CmbOrigenMItemStateChanged(evt);
             }
         });
 
+        TxtOrigenM.setBackground(new java.awt.Color(255, 255, 255));
+        TxtOrigenM.setForeground(new java.awt.Color(65, 65, 65));
         TxtOrigenM.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TxtOrigenMKeyReleased(evt);
@@ -131,17 +181,23 @@ static {
         });
 
         TxtDestinoM.setEditable(false);
+        TxtDestinoM.setBackground(new java.awt.Color(255, 255, 255));
+        TxtDestinoM.setColumns(20);
+        TxtDestinoM.setForeground(new java.awt.Color(65, 65, 65));
+        TxtDestinoM.setLineWrap(true);
+        TxtDestinoM.setRows(5);
+        jScrollPane1.setViewportView(TxtDestinoM);
 
         javax.swing.GroupLayout MedidasLayout = new javax.swing.GroupLayout(Medidas);
         Medidas.setLayout(MedidasLayout);
         MedidasLayout.setHorizontalGroup(
             MedidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MedidasLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MedidasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(MedidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtOrigenM)
-                    .addComponent(CmbDestinoM, 0, 457, Short.MAX_VALUE)
-                    .addComponent(TxtDestinoM))
+                .addGroup(MedidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(TxtOrigenM, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CmbDestinoM, javax.swing.GroupLayout.Alignment.LEADING, 0, 457, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(MedidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MedidasLayout.createSequentialGroup()
@@ -156,34 +212,33 @@ static {
                 .addComponent(TxtOrigenM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(CmbDestinoM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(TxtDestinoM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
             .addGroup(MedidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MedidasLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(CmbOrigenM, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(236, Short.MAX_VALUE)))
+                    .addContainerGap(324, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(Medidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 292));
+        getContentPane().add(Medidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 380));
 
-        CmbDestinoP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Picogramo (0.00000000003527396 lbs)", "Nanogramo (0.00000003527396 lbs)", "Microgramo (0.00003527396 lbs)", "Miligramo (0.00003527396 lbs)", "Gramo (0.0022046226218 lbs)", "Microtonelada (0.0000000022046226218 lbs)", "Militonelada (0.0000022046226218 lbs)", "Libra (1.0 lbs)", "Kilogramo (2.2046226218 lbs)", "Libra métrica (2.2046226218 lbs)", "Arroba (25.0 lbs)", "Quintal corto (100.0 lbs)", "Media tonelada (1102.311 lbs)", "Tonelada corta (2000.0 lbs)", "Tonelada métrica (2204.6226218 lbs)", "Tonelada larga (2240.0 lbs)", "Tonelada (35273.96195 lbs)", "Kilotonelada (220462.2622 lbs)", "Megatonelada (2204622.6218 lbs)", "Gigatonelada (22046226.218 lbs)", "Teratonelada (220462262.18 lbs)", "Petatonelada (2204622621.8 lbs)", "Exatonelada (22046226218.0 lbs)" }));
-        CmbDestinoP.setSelectedIndex(7);
+        CmbDestinoP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Picogramo", "Nanogramo", "Microgramo", "Miligramo", "Gramo", "Microtonelada", "Militonelada", "Libra", "Kilogramo", "Libra métrica", "Arroba", "Talento", "Quintal corto", "Media tonelada", "Tonelada corta", "Tonelada métrica", "Tonelada larga", "Tonelada", "Kilotonelada", "Megatonelada", "Gigatonelada", "Teratonelada", "Petatonelada", "Exatonelada" }));
         CmbDestinoP.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CmbDestinoPItemStateChanged(evt);
             }
         });
 
-        CmbOrigenP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Picogramo (0.00000000003527396 lbs)", "Nanogramo (0.00000003527396 lbs)", "Microgramo (0.00003527396 lbs)", "Miligramo (0.00003527396 lbs)", "Gramo (0.0022046226218 lbs)", "Microtonelada (0.0000000022046226218 lbs)", "Militonelada (0.0000022046226218 lbs)", "Libra (1.0 lbs)", "Kilogramo (2.2046226218 lbs)", "Libra métrica (2.2046226218 lbs)", "Arroba (25.0 lbs)", "Quintal corto (100.0 lbs)", "Media tonelada (1102.311 lbs)", "Tonelada corta (2000.0 lbs)", "Tonelada métrica (2204.6226218 lbs)", "Tonelada larga (2240.0 lbs)", "Tonelada (35273.96195 lbs)", "Kilotonelada (220462.2622 lbs)", "Megatonelada (2204622.6218 lbs)", "Gigatonelada (22046226.218 lbs)", "Teratonelada (220462262.18 lbs)", "Petatonelada (2204622621.8 lbs)", "Exatonelada (22046226218.0 lbs)" }));
-        CmbOrigenP.setSelectedIndex(7);
+        CmbOrigenP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Picogramo", "Nanogramo", "Microgramo", "Miligramo", "Gramo", "Microtonelada", "Militonelada", "Libra", "Kilogramo", "Libra métrica", "Arroba", "Talento", "Quintal corto", "Media tonelada", "Tonelada corta", "Tonelada métrica", "Tonelada larga", "Tonelada", "Kilotonelada", "Megatonelada", "Gigatonelada", "Teratonelada", "Petatonelada", "Exatonelada" }));
         CmbOrigenP.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CmbOrigenPItemStateChanged(evt);
             }
         });
 
+        TxtOrigenP.setBackground(new java.awt.Color(255, 255, 255));
+        TxtOrigenP.setForeground(new java.awt.Color(65, 65, 65));
         TxtOrigenP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TxtOrigenPKeyReleased(evt);
@@ -191,17 +246,23 @@ static {
         });
 
         TxtDestinoP.setEditable(false);
+        TxtDestinoP.setBackground(new java.awt.Color(255, 255, 255));
+        TxtDestinoP.setColumns(20);
+        TxtDestinoP.setForeground(new java.awt.Color(65, 65, 65));
+        TxtDestinoP.setLineWrap(true);
+        TxtDestinoP.setRows(5);
+        jScrollPane3.setViewportView(TxtDestinoP);
 
         javax.swing.GroupLayout PesosLayout = new javax.swing.GroupLayout(Pesos);
         Pesos.setLayout(PesosLayout);
         PesosLayout.setHorizontalGroup(
             PesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PesosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PesosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxtOrigenP)
-                    .addComponent(CmbDestinoP, 0, 457, Short.MAX_VALUE)
-                    .addComponent(TxtDestinoP))
+                .addGroup(PesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3)
+                    .addComponent(TxtOrigenP, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CmbDestinoP, javax.swing.GroupLayout.Alignment.LEADING, 0, 457, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(PesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PesosLayout.createSequentialGroup()
@@ -216,17 +277,90 @@ static {
                 .addComponent(TxtOrigenP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(CmbDestinoP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(TxtDestinoP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
             .addGroup(PesosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PesosLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(CmbOrigenP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(236, Short.MAX_VALUE)))
+                    .addContainerGap(324, Short.MAX_VALUE)))
         );
 
-        getContentPane().add(Pesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 292));
+        getContentPane().add(Pesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 380));
+
+        CmbDestinoT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femtosegundo", "Picosegundo", "Nanosegundo", "Microsegundo", "Milisegundo", "Segundo", "Minuto", "Media hora", "Hora", "Medio día", "Día", "Semana", "Mes", "Año", "Lustro", "Década", "Siglo", "Milenio", "Mega-año", "Milenio galáctico" }));
+        CmbDestinoT.setSelectedIndex(5);
+        CmbDestinoT.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CmbDestinoTItemStateChanged(evt);
+            }
+        });
+
+        CmbOrigenT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femtosegundo", "Picosegundo", "Nanosegundo", "Microsegundo", "Milisegundo", "Segundo", "Minuto", "Media hora", "Hora", "Medio día", "Día", "Semana", "Mes", "Año", "Lustro", "Década", "Siglo", "Milenio", "Mega-año", "Milenio galáctico" }));
+        CmbOrigenT.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CmbOrigenTItemStateChanged(evt);
+            }
+        });
+
+        TxtOrigenT.setBackground(new java.awt.Color(255, 255, 255));
+        TxtOrigenT.setForeground(new java.awt.Color(65, 65, 65));
+        TxtOrigenT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtOrigenTKeyReleased(evt);
+            }
+        });
+
+        TxtDestinoT.setEditable(false);
+        TxtDestinoT.setBackground(new java.awt.Color(255, 255, 255));
+        TxtDestinoT.setColumns(20);
+        TxtDestinoT.setForeground(new java.awt.Color(65, 65, 65));
+        TxtDestinoT.setLineWrap(true);
+        TxtDestinoT.setRows(5);
+        jScrollPane2.setViewportView(TxtDestinoT);
+
+        javax.swing.GroupLayout TiempoLayout = new javax.swing.GroupLayout(Tiempo);
+        Tiempo.setLayout(TiempoLayout);
+        TiempoLayout.setHorizontalGroup(
+            TiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TiempoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(TiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(TxtOrigenT, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CmbDestinoT, javax.swing.GroupLayout.Alignment.LEADING, 0, 457, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(TiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TiempoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(CmbOrigenT, 0, 457, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        TiempoLayout.setVerticalGroup(
+            TiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TiempoLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(TxtOrigenT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(CmbDestinoT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+            .addGroup(TiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TiempoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(CmbOrigenT, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(324, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 380));
+
+        BtnTiempo.setText("Tiempo");
+        BtnTiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnTiempoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 80, -1));
 
         BtnPesos.setText("Pesos");
         BtnPesos.addActionListener(new java.awt.event.ActionListener() {
@@ -234,7 +368,7 @@ static {
                 BtnPesosActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnPesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        getContentPane().add(BtnPesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, -1));
 
         BtnMedidas.setText("Medidas");
         BtnMedidas.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +376,7 @@ static {
                 BtnMedidasActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnMedidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        getContentPane().add(BtnMedidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
 
         BtnVolver1.setText("Volver");
         BtnVolver1.addActionListener(new java.awt.event.ActionListener() {
@@ -251,6 +385,7 @@ static {
             }
         });
         getContentPane().add(BtnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 480, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,19 +417,40 @@ static {
     private void BtnMedidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMedidasActionPerformed
         Medidas.setVisible(true);
         Pesos.setVisible(false);
+        Tiempo.setVisible(false);
         Reinicio();
     }//GEN-LAST:event_BtnMedidasActionPerformed
 
     private void BtnPesosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesosActionPerformed
         Medidas.setVisible(false);
         Pesos.setVisible(true);
+        Tiempo.setVisible(false);
         Reinicio();
     }//GEN-LAST:event_BtnPesosActionPerformed
 
     private void BtnVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolver1ActionPerformed
-        new  Inicio().setVisible(true);
+        new Inicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnVolver1ActionPerformed
+
+    private void CmbDestinoTItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CmbDestinoTItemStateChanged
+        conversorTiempo();
+    }//GEN-LAST:event_CmbDestinoTItemStateChanged
+
+    private void CmbOrigenTItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CmbOrigenTItemStateChanged
+        conversorTiempo();
+    }//GEN-LAST:event_CmbOrigenTItemStateChanged
+
+    private void TxtOrigenTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtOrigenTKeyReleased
+        conversorTiempo();
+    }//GEN-LAST:event_TxtOrigenTKeyReleased
+
+    private void BtnTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTiempoActionPerformed
+        Medidas.setVisible(false);
+        Pesos.setVisible(false);
+        Tiempo.setVisible(true);
+        Reinicio();
+    }//GEN-LAST:event_BtnTiempoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,20 +487,26 @@ static {
         });
     }
 
-    public void Reinicio(){
+    public void Reinicio() {
         // Medidas
         TxtOrigenM.setText("");
         TxtDestinoM.setText("");
         CmbOrigenM.setSelectedIndex(3);
         CmbDestinoM.setSelectedIndex(3);
-        
+
         // Pesos
         TxtOrigenP.setText("");
         TxtDestinoP.setText("");
         CmbOrigenP.setSelectedIndex(7);
         CmbDestinoP.setSelectedIndex(7);
+
+        // Tiempo
+        TxtOrigenT.setText("");
+        TxtDestinoT.setText("");
+        CmbOrigenT.setSelectedIndex(5);
+        CmbDestinoT.setSelectedIndex(5);
     }
-    
+
     public void conversorMedidas() {
         try {
             if (TxtOrigenM.getText().isEmpty()) {
@@ -352,10 +514,6 @@ static {
                 return;
             }
             String inputText = TxtOrigenM.getText();
-            if (inputText.length() > 9) {
-                TxtDestinoM.setText("El número es demasiado largo (máx. 9 dígitos).");
-                return;
-            }
 
             if (!inputText.matches("\\d+")) {
                 TxtDestinoM.setText("Solo se pueden convertir números.");
@@ -365,17 +523,16 @@ static {
             int unidadOrigen = CmbOrigenM.getSelectedIndex() + 1;
             int unidadDestino = CmbDestinoM.getSelectedIndex() + 1;
 
-            double factorOrigen = unidadMedidas.get(unidadOrigen);
-            double factorDestino = unidadMedidas.get(unidadDestino);
+            BigDecimal factorOrigen = new BigDecimal(unidadMedidas.get(unidadOrigen));
+            BigDecimal factorDestino = new BigDecimal(unidadMedidas.get(unidadDestino));
 
-            double resultado = (Integer.parseInt(inputText) * factorOrigen) / factorDestino;
+            BigDecimal input = new BigDecimal(inputText);
 
-            if (resultado == 0) {
-                TxtDestinoM.setText("No se puede realizar la operación");
-                return;
-            }
+            BigDecimal resultado = input.multiply(factorOrigen).divide(factorDestino, 50, BigDecimal.ROUND_HALF_UP);
 
-            TxtDestinoM.setText(String.valueOf(resultado));
+            String resultadoStr = resultado.stripTrailingZeros().toPlainString();
+
+            TxtDestinoM.setText(resultadoStr);
 
         } catch (NumberFormatException e) {
             TxtDestinoM.setText("Solo se pueden convertir números.");
@@ -393,10 +550,6 @@ static {
                 return;
             }
             String inputText = TxtOrigenP.getText();
-            if (inputText.length() > 9) {
-                TxtDestinoP.setText("El número es demasiado largo (máx. 9 dígitos).");
-                return;
-            }
 
             if (!inputText.matches("\\d+")) {
                 TxtDestinoP.setText("Solo se pueden convertir números.");
@@ -406,17 +559,16 @@ static {
             int unidadOrigen = CmbOrigenP.getSelectedIndex() + 1;
             int unidadDestino = CmbDestinoP.getSelectedIndex() + 1;
 
-            double factorOrigen = unidadPeso.get(unidadOrigen);
-            double factorDestino = unidadPeso.get(unidadDestino);
+            BigDecimal factorOrigen = new BigDecimal(unidadPeso.get(unidadOrigen));
+            BigDecimal factorDestino = new BigDecimal(unidadPeso.get(unidadDestino));
 
-            double resultado = (Integer.parseInt(inputText) * factorOrigen) / factorDestino;
+            BigDecimal input = new BigDecimal(inputText);
 
-            if (resultado == 0) {
-                TxtDestinoP.setText("No se puede realizar la operación");
-                return;
-            }
+            BigDecimal resultado = input.multiply(factorOrigen).divide(factorDestino, 50, BigDecimal.ROUND_HALF_UP);
 
-            TxtDestinoP.setText(String.valueOf(resultado));
+            String resultadoStr = resultado.stripTrailingZeros().toPlainString();
+
+            TxtDestinoP.setText(resultadoStr);
 
         } catch (NumberFormatException e) {
             TxtDestinoP.setText("Solo se pueden convertir números.");
@@ -427,20 +579,71 @@ static {
         }
     }
 
+    public void conversorTiempo() {
+        try {
+            if (TxtOrigenT.getText().isEmpty()) {
+                TxtDestinoT.setText("0");
+                return;
+            }
+            String inputText = TxtOrigenT.getText();
+
+            if (!inputText.matches("\\d+")) {
+                TxtDestinoT.setText("Solo se pueden convertir números.");
+                return;
+            }
+
+            int unidadOrigen = CmbOrigenT.getSelectedIndex() + 1;
+            int unidadDestino = CmbDestinoT.getSelectedIndex() + 1;
+
+            BigDecimal factorOrigen = new BigDecimal(unidadTiempo.get(unidadOrigen));
+            BigDecimal factorDestino = new BigDecimal(unidadTiempo.get(unidadDestino));
+
+            BigDecimal input = new BigDecimal(inputText);
+
+            BigDecimal resultado = input.multiply(factorOrigen).divide(factorDestino, 50, BigDecimal.ROUND_HALF_UP);
+
+            String resultadoStr = resultado.stripTrailingZeros().toPlainString();
+
+            if (resultadoStr.contains("E")) {
+                resultadoStr = new BigDecimal(resultadoStr).toPlainString();
+            }
+
+            TxtDestinoT.setText(resultadoStr);
+
+        } catch (NumberFormatException e) {
+            TxtDestinoT.setText("Solo se pueden convertir números.");
+        } catch (ArithmeticException e) {
+            System.out.println("Error: División por infinito.");
+        } catch (Exception e) {
+            System.out.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnMedidas;
     private javax.swing.JButton BtnPesos;
+    private javax.swing.JButton BtnTiempo;
     private javax.swing.JButton BtnVolver1;
     private javax.swing.JComboBox<String> CmbDestinoM;
     private javax.swing.JComboBox<String> CmbDestinoP;
+    private javax.swing.JComboBox<String> CmbDestinoT;
     private javax.swing.JComboBox<String> CmbOrigenM;
     private javax.swing.JComboBox<String> CmbOrigenP;
+    private javax.swing.JComboBox<String> CmbOrigenT;
+    private javax.swing.JLabel LabelWallpaper;
     private javax.swing.JPanel Medidas;
     private javax.swing.JPanel Pesos;
-    private javax.swing.JTextField TxtDestinoM;
-    private javax.swing.JTextField TxtDestinoP;
+    private javax.swing.JPanel Tiempo;
+    private javax.swing.JTextArea TxtDestinoM;
+    private javax.swing.JTextArea TxtDestinoP;
+    private javax.swing.JTextArea TxtDestinoT;
     private javax.swing.JTextField TxtOrigenM;
     private javax.swing.JTextField TxtOrigenP;
+    private javax.swing.JTextField TxtOrigenT;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 
 }

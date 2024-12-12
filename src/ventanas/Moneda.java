@@ -4,7 +4,10 @@
  */
 package ventanas;
 
+import java.awt.Image;
 import java.util.Random;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +23,12 @@ public class Moneda extends javax.swing.JFrame {
 
         setTitle("Cara o Corona");
         this.setLocationRelativeTo(null);
+
+        ImageIcon wallpaper = new ImageIcon("src/img/Coin.jpg");
+        Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
+                LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));
+
+        LabelWallpaper.setIcon(icon);
 
         TxtCruz.setText(cruz + " :Cruz");
         TxtCara.setText("Cara: " + cara);
@@ -38,10 +47,14 @@ public class Moneda extends javax.swing.JFrame {
         TxtCruz = new javax.swing.JTextField();
         TxtCara = new javax.swing.JTextField();
         BtnVolver = new javax.swing.JButton();
+        LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtnMoneda.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        BtnMoneda.setBackground(new java.awt.Color(56, 56, 56));
+        BtnMoneda.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        BtnMoneda.setForeground(new java.awt.Color(255, 255, 255));
         BtnMoneda.setText("Clic");
         BtnMoneda.setToolTipText("");
         BtnMoneda.addActionListener(new java.awt.event.ActionListener() {
@@ -49,11 +62,22 @@ public class Moneda extends javax.swing.JFrame {
                 BtnMonedaActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnMoneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 217, 217));
 
+        TxtCruz.setEditable(false);
+        TxtCruz.setBackground(new java.awt.Color(56, 56, 56));
+        TxtCruz.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtCruz.setForeground(new java.awt.Color(255, 255, 255));
         TxtCruz.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxtCruz.setText(":Cruz");
+        getContentPane().add(TxtCruz, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 129, 40));
 
+        TxtCara.setEditable(false);
+        TxtCara.setBackground(new java.awt.Color(56, 56, 56));
+        TxtCara.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtCara.setForeground(new java.awt.Color(255, 255, 255));
         TxtCara.setText("Cara:");
+        getContentPane().add(TxtCara, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 129, 40));
 
         BtnVolver.setText("Volver");
         BtnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -61,38 +85,8 @@ public class Moneda extends javax.swing.JFrame {
                 BtnVolverActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtnMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TxtCara, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(TxtCruz, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BtnVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BtnMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtCruz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtCara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
+        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 6, 75, -1));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,22 +95,33 @@ public class Moneda extends javax.swing.JFrame {
 
         Random random = new Random();
         int numero = random.nextInt(2);
+        String Resultado = "";
+        BtnMoneda.setText("");
 
+        BtnMoneda.setOpaque(false);
+        BtnMoneda.setContentAreaFilled(false);
+        BtnMoneda.setBorderPainted(false);
+        BtnMoneda.setFocusPainted(false);
         if (numero == 1) {
             cara++;
             TxtCara.setText("Cara: " + cara);
-            BtnMoneda.setText("Cara");
+            Resultado = "Cara";
         } else if (numero == 0) {
             cruz++;
             TxtCruz.setText(cruz + " :Cruz");
-            BtnMoneda.setText("Cruz");
+            Resultado = "Cruz";
         }
 
+        ImageIcon moneda = new ImageIcon("src/img/" + Resultado + ".png");
+        Icon caraCorona = new ImageIcon(moneda.getImage().getScaledInstance(BtnMoneda.getWidth(),
+                BtnMoneda.getHeight(), Image.SCALE_DEFAULT));
+
+        BtnMoneda.setIcon(caraCorona);
 
     }//GEN-LAST:event_BtnMonedaActionPerformed
 
     private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
-        new  Inicio().setVisible(true);
+        new Inicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnVolverActionPerformed
 
@@ -159,6 +164,7 @@ public class Moneda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnMoneda;
     private javax.swing.JButton BtnVolver;
+    private javax.swing.JLabel LabelWallpaper;
     private javax.swing.JTextField TxtCara;
     private javax.swing.JTextField TxtCruz;
     // End of variables declaration//GEN-END:variables
