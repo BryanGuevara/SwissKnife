@@ -106,7 +106,7 @@ public class Conversor extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         Reinicio();
-        
+
         Medidas.setOpaque(false);
         Pesos.setOpaque(false);
         Tiempo.setOpaque(false);
@@ -114,7 +114,7 @@ public class Conversor extends javax.swing.JFrame {
         Medidas.setVisible(true);
         Pesos.setVisible(false);
         Tiempo.setVisible(false);
-        
+
         ImageIcon wallpaper = new ImageIcon("src/img/Medidas.jpg");
         Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
                 LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));

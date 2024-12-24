@@ -22,7 +22,13 @@ public class Info extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
 
-        jTextArea1.setCaretPosition(0);
+        AreaInfo.setCaretPosition(0);
+        
+        
+        ImageIcon wallpaper = new ImageIcon("src/img/Info.jpg");
+        Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
+                LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));
+        LabelWallpaper.setIcon(icon);
 
         ImageIcon Facebook = new ImageIcon("src/img/facebook.png");
         Icon iconf = new ImageIcon(Facebook.getImage().getScaledInstance(BtnFacebook.getWidth(),
@@ -55,18 +61,20 @@ public class Info extends javax.swing.JFrame {
         BtnGithub = new javax.swing.JButton();
         BtnInstagram = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        AreaInfo = new javax.swing.JTextPane();
+        LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(getIconImage());
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnFacebook.setBackground(new java.awt.Color(51, 51, 51));
         BtnFacebook.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -77,6 +85,7 @@ public class Info extends javax.swing.JFrame {
                 BtnFacebookActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnFacebook, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 60, 60));
 
         BtnGithub.setBackground(new java.awt.Color(51, 51, 51));
         BtnGithub.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -87,6 +96,7 @@ public class Info extends javax.swing.JFrame {
                 BtnGithubActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnGithub, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 60, 60));
 
         BtnInstagram.setBackground(new java.awt.Color(51, 51, 51));
         BtnInstagram.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -97,6 +107,7 @@ public class Info extends javax.swing.JFrame {
                 BtnInstagramActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnInstagram, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 60, 60));
 
         jTextField5.setEditable(false);
         jTextField5.setBackground(new java.awt.Color(51, 51, 51));
@@ -105,28 +116,16 @@ public class Info extends javax.swing.JFrame {
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Redes Sociales");
         jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jScrollPane1.setBorder(null);
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(51, 51, 51));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Swiff Knife Beta 0.1\n- Adicion de icono a las funciones en Inicio\n- Adicion de wallpapers dinamicos en estaña \"Inicio\"\n\n---\nSwiff Knife Alfa 0.0.1\n- Creación de la pestaña inicio\n- Adicion de \"Calculadora\"\n- Adicion de \"Conversor\"\n- Adicion de \"Moneda\"\n- Adicion de \"Información de la aplicación\"");
-        jTextArea1.setWrapStyleWord(true);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPane1.setViewportView(jTextArea1);
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 220, 30));
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(51, 51, 51));
         jTextField1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Swiff Knife Alfa 0.1");
+        jTextField1.setText("Swiff Knife Beta 0.1");
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 520, 70));
 
         jTextField2.setEditable(false);
         jTextField2.setBackground(new java.awt.Color(51, 51, 51));
@@ -135,6 +134,7 @@ public class Info extends javax.swing.JFrame {
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Notas de la version");
         jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 170, 30));
 
         jTextField4.setEditable(false);
         jTextField4.setBackground(new java.awt.Color(51, 51, 51));
@@ -143,6 +143,7 @@ public class Info extends javax.swing.JFrame {
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText("Hecho con Java 17");
         jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 230, 30));
 
         jTextField3.setEditable(false);
         jTextField3.setBackground(new java.awt.Color(51, 51, 51));
@@ -151,6 +152,7 @@ public class Info extends javax.swing.JFrame {
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Creado Por Bryan Guevara");
         jTextField3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 230, 30));
 
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -164,57 +166,19 @@ public class Info extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 40, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70)
-                        .addComponent(BtnInstagram, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(BtnGithub, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(BtnFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BtnInstagram, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnGithub, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        AreaInfo.setEditable(false);
+        AreaInfo.setBackground(new java.awt.Color(56, 56, 56));
+        AreaInfo.setContentType("text/html"); // NOI18N
+        AreaInfo.setForeground(new java.awt.Color(0, 0, 0));
+        AreaInfo.setText("<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <style>\n        body {\n            background-color: rgb(56, 56, 56);\n            color: rgb(255, 255, 255);\n            font-family: Arial, sans-serif;\n            line-height: 1.6;\n            margin: 0px 20px;\n            font-size: 10px; \n        }\n        h1 {\n            font-size: 16px; \n            border-bottom: 2px solid;\n            padding-bottom: 5px;\n            margin-top: 30px;\n            text-align: center;\n        }\n        ul {\n            margin: 10px 0;\n            padding-left: 20px;\n        }\n        li {\n            color: rgb(220, 220, 220);\n            font-size: 10px; /* Tamaño reducido a un cuarto */\n            margin-bottom: 5px;\n            position: relative;\n        }\n        li::before {\n            content: \"•\";\n            color: rgb(255, 204, 0);\n            position: absolute;\n            left: -20px;\n        }\n        .version-section {\n            padding: 10px;\n            border-radius: 5px;\n            background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil */\n            margin-bottom: 20px;\n        }\n    </style>\n</head>\n<body>\n    <section id=\"beta-0.1\" class=\"version-section\">\n        <h1>Swiss Knife Beta v0.1</h1>\n        <ul>\n            <li>Adición de ícono a las funciones en \"Inicio\"</li>\n            <li>Adición de wallpapers dinámicos en la pestaña \"Inicio\"</li>\n            <li>Modificación de la lógica de \"Calculadora\"</li>\n            <li>Actualización del historial de intentos en \"Encontrar\"</li>\n            <li>Adición de \"Tiempo\" a las medidas de Conversión en \"Conversor\"</li>\n            <li>Cambio de nombre de \"Moneda\" a \"Cara y cruz\", mas de acuerdo a su función</li>\n            <li>Modificación de la lógica en \"Cara y cruz\"</li>\n            <li>Adición de la pestaña \"Repetidor de palabras\" para repetir una frase hasta 800 veces</li>\n            <li>Adición de soporte de Markdown en \"Visualizador\"</li>\n            <li>Adición de boton de reinicio en \"HTML\" y \"Markdown\" en \"Visualizador\"</li>\n            <li>Adición de los botones \"HTML\" y \"PDF\" para poder exportar los codigos de \"Visualizador\"</li>\n            <li>Cambio de la logica de calculo de \"Conversor\"</li>\n            <li>Adición de \"Talento\" a las medidas de peso en \"Conversor\"</li>\n            <li>Adición de la pestaña \"Paletas\"</li>\n            <li>Adición de la paleta \"Complemetario\" a las paletas de color de \"Paletas\"</li>\n            <li>Adición de la paleta \"Ternario\" a las paletas de color de \"Paletas\"</li>\n            <li>Adición de la paleta \"Analogos\" a las paletas de color de \"Paletas\"</li>\n            <li>Adición de la paleta \"Sombras\" a las paletas de color de \"Paletas\"</li>\n            <li>Adición de la paleta \"Square\" a las paletas de color de \"Paletas\"</li>\n            <li>Adición de la paleta \"Cuadernarios\" a las paletas de color de \"Paletas\"</li>\n            <li>Adición de la paleta \"Tintes\" las paletas de color de \"Paletas\"</li>\n            <li>Adición de la paleta \"Monocromatica\" las paletas de color de \"Paletas\"</li>\n            <li>Adición de la pestaña \"MathMixer\"</li>\n            <li>Adición de la operación \"Tablas\" a las operaciones de la pestaña \"Mathmixer\"</li>\n            <li>Adición de la operación \"Multiplo\" a las operaciones de la pestaña \"Mathmixer\"</li>\n            <li>Adición de la operación \"Factorial\" a las operaciones de la pestaña \"Mathmixer\"</li>\n            <li>Adición de la operación \"Conjetura 3N+1\" a las operaciones de la pestaña \"Mathmixer\"</li>\n        </ul>\n    </section>\n    <hr>\n\n    <section id=\"alfa-0.0.1\" class=\"version-section\">\n        <h1>Swiss Knife Alfa v0.0.1</h1>\n        <ul>\n            <li>Creación de la pestaña \"Inicio\"</li>\n            <li>Adición de \"Calculadora\"</li>\n            <li>Adición de \"Conversor\"</li>\n            <li>Adición de \"Medidas\" a las medidas de Conversión en \"Conversor\"</li>\n            <li>Adición de \"Pesos\" a las medidas de Conversión en \"Conversor\"</li>\n            <li>Adición de la pestaña \"Moneda\" para jugar al cara y cruz</li>\n            <li>Adición de \"Información de la aplicación\"</li>\n            <li>Adición de \"Encontrar\", juego de adivinar el numero</li>\n        </ul>\n    </section>\n</body>\n</html>");
+        jScrollPane1.setViewportView(AreaInfo);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 520, 230));
+
+        LabelWallpaper.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -309,12 +273,13 @@ public class Info extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextPane AreaInfo;
     private javax.swing.JButton BtnFacebook;
     private javax.swing.JButton BtnGithub;
     private javax.swing.JButton BtnInstagram;
+    private javax.swing.JLabel LabelWallpaper;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

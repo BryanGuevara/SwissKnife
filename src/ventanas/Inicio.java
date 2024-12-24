@@ -19,10 +19,12 @@ public class Inicio extends javax.swing.JFrame {
     OpcionVentana[] opcionesVentanas = {
         new OpcionVentana("Calculadora", "Calculadora sencilla", "src/img/Calculadora.jpg", "src/img/calculadoraIcon.png", Calculadora.class),
         new OpcionVentana("Conversor", "Conversor de unidades", "src/img/Medidas.jpg", "src/img/medidasIcon.png", Conversor.class),
-        new OpcionVentana("Moneda", "Cara o Cruz", "src/img/Coin.jpg", "src/img/coinIco.png", Moneda.class),
+        new OpcionVentana("Cara o Cruz", "Lanza una moneda al aire", "src/img/Coin.jpg", "src/img/coinIco.png", Moneda.class),
         new OpcionVentana("Visualizador", "Visualizador de HTML", "src/img/Visualizador.jpg", "src/img/visualizadorIco.png", Visualizador.class),
         new OpcionVentana("Encuentra", "Adivina el numero que genero la pc", "src/img/Encontrar.jpg", "src/img/encontrarIco.png", Encontrar.class),
         new OpcionVentana("Repetidor", "Repite una frase muechas veces", "src/img/Repetir.jpg", "src/img/Repetir.png", Repetidor.class),
+        new OpcionVentana("Paletas", "Arma paletas de colores", "src/img/Paleta.jpg", "src/img/paleta.png", Paletas.class),
+        new OpcionVentana("MathMixer", "Funciones matematicas", "src/img/Mathmixer.jpg", "src/img/mathmiexer.png", MathMixer.class),
         new OpcionVentana("Información de la app", "Notas de Versión", "src/img/Info.jpg", "", Info.class)
     };
 

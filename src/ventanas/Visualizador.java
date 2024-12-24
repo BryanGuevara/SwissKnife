@@ -396,7 +396,7 @@ public class Visualizador extends javax.swing.JFrame {
         HtmlRenderer renderer = HtmlRenderer.builder().build();
         return renderer.render(document);
     }
-
+    
     public static String limpieza(String texto) {
         org.jsoup.nodes.Document doc = Jsoup.parse(texto);
         doc.select("*:empty").remove();

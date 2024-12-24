@@ -23,71 +23,11 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-55,0,0,2,77"/>
   </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jTextField1" min="-2" pref="520" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="40" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jTextField3" min="-2" pref="230" max="-2" attributes="0"/>
-                      <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                      <Component id="jTextField5" min="-2" pref="220" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField4" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="jTextField2" min="-2" pref="170" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                      <Component id="BtnInstagram" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="BtnGithub" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="BtnFacebook" min="-2" pref="60" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jScrollPane1" min="-2" pref="540" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" pref="70" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jButton3" min="-2" pref="40" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextField3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jTextField5" min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jTextField4" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                      <Component id="jTextField2" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="BtnInstagram" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="BtnGithub" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="BtnFacebook" min="-2" pref="60" max="-2" attributes="0"/>
-              </Group>
-              <Component id="jScrollPane1" min="-2" pref="240" max="-2" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="BtnFacebook">
@@ -110,6 +50,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnFacebookActionPerformed"/>
       </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="490" y="130" width="60" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="BtnGithub">
       <Properties>
@@ -131,6 +76,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnGithubActionPerformed"/>
       </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="410" y="130" width="60" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="BtnInstagram">
       <Properties>
@@ -152,6 +102,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnInstagramActionPerformed"/>
       </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="330" y="130" width="60" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField5">
       <Properties>
@@ -173,45 +128,12 @@
           </Border>
         </Property>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="330" y="90" width="220" height="30"/>
+        </Constraint>
+      </Constraints>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial Black" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Swiff Knife Beta 0.1&#xa;- Adicion de icono a las funciones en Inicio&#xa;- Adicion de wallpapers dinamicos en esta&#xf1;a &quot;Inicio&quot;&#xa;&#xa;---&#xa;Swiff Knife Alfa 0.0.1&#xa;- Creaci&#xf3;n de la pesta&#xf1;a inicio&#xa;- Adicion de &quot;Calculadora&quot;&#xa;- Adicion de &quot;Conversor&quot;&#xa;- Adicion de &quot;Moneda&quot;&#xa;- Adicion de &quot;Informaci&#xf3;n de la aplicaci&#xf3;n&quot;"/>
-            <Property name="wrapStyleWord" type="boolean" value="true"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                <BevelBorder/>
-              </Border>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JTextField" name="jTextField1">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
@@ -225,13 +147,18 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Swiff Knife Alfa 0.1"/>
+        <Property name="text" type="java.lang.String" value="Swiff Knife Beta 0.1"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
             <BevelBorder/>
           </Border>
         </Property>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="10" width="520" height="70"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField2">
       <Properties>
@@ -253,6 +180,11 @@
           </Border>
         </Property>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="180" width="170" height="30"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4">
       <Properties>
@@ -274,6 +206,11 @@
           </Border>
         </Property>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="130" width="230" height="30"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField3">
       <Properties>
@@ -295,6 +232,11 @@
           </Border>
         </Property>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="90" width="230" height="30"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
@@ -317,6 +259,52 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
       </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="550" y="0" width="40" height="40"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="30" y="210" width="520" height="230"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextPane" name="AreaInfo">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="38" green="38" red="38" type="rgb"/>
+            </Property>
+            <Property name="contentType" type="java.lang.String" value="text/html" noResource="true"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&lt;!DOCTYPE html&gt;&#xa;&lt;html lang=&quot;es&quot;&gt;&#xa;&lt;head&gt;&#xa;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xa;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xa;    &lt;style&gt;&#xa;        body {&#xa;            background-color: rgb(56, 56, 56);&#xa;            color: rgb(255, 255, 255);&#xa;            font-family: Arial, sans-serif;&#xa;            line-height: 1.6;&#xa;            margin: 0px 20px;&#xa;            font-size: 10px; &#xa;        }&#xa;        h1 {&#xa;            font-size: 16px; &#xa;            border-bottom: 2px solid;&#xa;            padding-bottom: 5px;&#xa;            margin-top: 30px;&#xa;            text-align: center;&#xa;        }&#xa;        ul {&#xa;            margin: 10px 0;&#xa;            padding-left: 20px;&#xa;        }&#xa;        li {&#xa;            color: rgb(220, 220, 220);&#xa;            font-size: 10px; /* Tama&#xf1;o reducido a un cuarto */&#xa;            margin-bottom: 5px;&#xa;            position: relative;&#xa;        }&#xa;        li::before {&#xa;            content: &quot;&#x2022;&quot;;&#xa;            color: rgb(255, 204, 0);&#xa;            position: absolute;&#xa;            left: -20px;&#xa;        }&#xa;        .version-section {&#xa;            padding: 10px;&#xa;            border-radius: 5px;&#xa;            background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil */&#xa;            margin-bottom: 20px;&#xa;        }&#xa;    &lt;/style&gt;&#xa;&lt;/head&gt;&#xa;&lt;body&gt;&#xa;    &lt;section id=&quot;beta-0.1&quot; class=&quot;version-section&quot;&gt;&#xa;        &lt;h1&gt;Swiss Knife Beta v0.1&lt;/h1&gt;&#xa;        &lt;ul&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &#xed;cono a las funciones en &quot;Inicio&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de wallpapers din&#xe1;micos en la pesta&#xf1;a &quot;Inicio&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Modificaci&#xf3;n de la l&#xf3;gica de &quot;Calculadora&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Actualizaci&#xf3;n del historial de intentos en &quot;Encontrar&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Tiempo&quot; a las medidas de Conversi&#xf3;n en &quot;Conversor&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Cambio de nombre de &quot;Moneda&quot; a &quot;Cara y cruz&quot;, mas de acuerdo a su funci&#xf3;n&lt;/li&gt;&#xa;            &lt;li&gt;Modificaci&#xf3;n de la l&#xf3;gica en &quot;Cara y cruz&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la pesta&#xf1;a &quot;Repetidor de palabras&quot; para repetir una frase hasta 800 veces&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de soporte de Markdown en &quot;Visualizador&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de boton de reinicio en &quot;HTML&quot; y &quot;Markdown&quot; en &quot;Visualizador&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de los botones &quot;HTML&quot; y &quot;PDF&quot; para poder exportar los codigos de &quot;Visualizador&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Cambio de la logica de calculo de &quot;Conversor&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Talento&quot; a las medidas de peso en &quot;Conversor&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la pesta&#xf1;a &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Complemetario&quot; a las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Ternario&quot; a las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Analogos&quot; a las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Sombras&quot; a las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Square&quot; a las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Cuadernarios&quot; a las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Tintes&quot; las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la paleta &quot;Monocromatica&quot; las paletas de color de &quot;Paletas&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la pesta&#xf1;a &quot;MathMixer&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la operaci&#xf3;n &quot;Tablas&quot; a las operaciones de la pesta&#xf1;a &quot;Mathmixer&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la operaci&#xf3;n &quot;Multiplo&quot; a las operaciones de la pesta&#xf1;a &quot;Mathmixer&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la operaci&#xf3;n &quot;Factorial&quot; a las operaciones de la pesta&#xf1;a &quot;Mathmixer&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la operaci&#xf3;n &quot;Conjetura 3N+1&quot; a las operaciones de la pesta&#xf1;a &quot;Mathmixer&quot;&lt;/li&gt;&#xa;        &lt;/ul&gt;&#xa;    &lt;/section&gt;&#xa;    &lt;hr&gt;&#xa;&#xa;    &lt;section id=&quot;alfa-0.0.1&quot; class=&quot;version-section&quot;&gt;&#xa;        &lt;h1&gt;Swiss Knife Alfa v0.0.1&lt;/h1&gt;&#xa;        &lt;ul&gt;&#xa;            &lt;li&gt;Creaci&#xf3;n de la pesta&#xf1;a &quot;Inicio&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Calculadora&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Conversor&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Medidas&quot; a las medidas de Conversi&#xf3;n en &quot;Conversor&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Pesos&quot; a las medidas de Conversi&#xf3;n en &quot;Conversor&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de la pesta&#xf1;a &quot;Moneda&quot; para jugar al cara y cruz&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Informaci&#xf3;n de la aplicaci&#xf3;n&quot;&lt;/li&gt;&#xa;            &lt;li&gt;Adici&#xf3;n de &quot;Encontrar&quot;, juego de adivinar el numero&lt;/li&gt;&#xa;        &lt;/ul&gt;&#xa;    &lt;/section&gt;&#xa;&lt;/body&gt;&#xa;&lt;/html&gt;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="LabelWallpaper">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="590" height="460"/>
+        </Constraint>
+      </Constraints>
     </Component>
   </SubComponents>
 </Form>

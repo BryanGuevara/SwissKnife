@@ -44,6 +44,7 @@ public class Moneda extends javax.swing.JFrame {
     private void initComponents() {
 
         BtnMoneda = new javax.swing.JButton();
+        TxtLanzamiento = new javax.swing.JTextField();
         TxtCruz = new javax.swing.JTextField();
         TxtCara = new javax.swing.JTextField();
         BtnVolver = new javax.swing.JButton();
@@ -63,6 +64,14 @@ public class Moneda extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnMoneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 217, 217));
+
+        TxtLanzamiento.setEditable(false);
+        TxtLanzamiento.setBackground(new java.awt.Color(56, 56, 56));
+        TxtLanzamiento.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtLanzamiento.setForeground(new java.awt.Color(255, 255, 255));
+        TxtLanzamiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtLanzamiento.setText("Aun no se lanza la moneda");
+        getContentPane().add(TxtLanzamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 280, 40));
 
         TxtCruz.setEditable(false);
         TxtCruz.setBackground(new java.awt.Color(56, 56, 56));
@@ -86,7 +95,7 @@ public class Moneda extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 6, 75, -1));
-        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 330));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -105,10 +114,12 @@ public class Moneda extends javax.swing.JFrame {
         if (numero == 1) {
             cara++;
             TxtCara.setText("Cara: " + cara);
+            TxtLanzamiento.setText("Lanzamiento "+(cara+cruz)+": Cara");
             Resultado = "Cara";
         } else if (numero == 0) {
             cruz++;
             TxtCruz.setText(cruz + " :Cruz");
+            TxtLanzamiento.setText("Lanzamiento "+(cara+cruz)+": Cruz");
             Resultado = "Cruz";
         }
 
@@ -167,5 +178,6 @@ public class Moneda extends javax.swing.JFrame {
     private javax.swing.JLabel LabelWallpaper;
     private javax.swing.JTextField TxtCara;
     private javax.swing.JTextField TxtCruz;
+    private javax.swing.JTextField TxtLanzamiento;
     // End of variables declaration//GEN-END:variables
 }
