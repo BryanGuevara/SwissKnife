@@ -20,6 +20,7 @@ public class Conversor extends javax.swing.JFrame {
     private static final Map<Integer, Double> unidadMedidas = new HashMap<>();
     private static final Map<Integer, Double> unidadPeso = new HashMap<>();
     private static final Map<Integer, Double> unidadTiempo = new HashMap<>();
+    private static final Map<Integer, Double> unidadCapacidad = new HashMap<>();
 
     static {
         unidadMedidas.put(1, 0.000000001);    // Nanómetro
@@ -98,6 +99,29 @@ public class Conversor extends javax.swing.JFrame {
         unidadTiempo.put(20, 3.1536e16);    // Milenio galáctico (1000 millones de años)
     }
 
+    static {
+        unidadCapacidad.put(1, 0.000001);          // Bit (b)
+        unidadCapacidad.put(2, 0.000125);          // Byte (B)
+        unidadCapacidad.put(3, 0.008);             // Kilobit (Kb)
+        unidadCapacidad.put(4, 0.125);             // Kilobyte (KB)
+        unidadCapacidad.put(5, 1.0);               // Megabit (Mb)
+        unidadCapacidad.put(6, 1.0);               // Megabyte (MB) - unidad base
+        unidadCapacidad.put(7, 8.0);               // Gigabit (Gb)
+        unidadCapacidad.put(8, 1024.0);            // Gigabyte (GB)
+        unidadCapacidad.put(9, 8192.0);            // Terabit (Tb)
+        unidadCapacidad.put(10, 1048576.0);        // Terabyte (TB)
+        unidadCapacidad.put(11, 8388608.0);        // Petabit (Pb)
+        unidadCapacidad.put(12, 1073741824.0);     // Petabyte (PB)
+        unidadCapacidad.put(13, 8589934592.0);     // Exabit (Eb)
+        unidadCapacidad.put(14, 1099511627776.0);  // Exabyte (EB)
+        unidadCapacidad.put(15, 8796093022208.0);  // Zettabit (Zb)
+        unidadCapacidad.put(16, 1125899906842624.0); // Zettabyte (ZB)
+        unidadCapacidad.put(17, 9007199254740992.0); // Yottabit (Yb)
+        unidadCapacidad.put(18, 1152921504606846976.0); // Yottabyte (YB)
+        unidadCapacidad.put(19, 9223372036854775808.0); // Brontobyte
+        unidadCapacidad.put(20, 1180591620717411303424.0); // Geopbyte
+    }
+
     public Conversor() {
         initComponents();
 
@@ -110,10 +134,12 @@ public class Conversor extends javax.swing.JFrame {
         Medidas.setOpaque(false);
         Pesos.setOpaque(false);
         Tiempo.setOpaque(false);
+        Capacidad.setOpaque(false);
 
         Medidas.setVisible(true);
         Pesos.setVisible(false);
         Tiempo.setVisible(false);
+        Capacidad.setVisible(false);
 
         ImageIcon wallpaper = new ImageIcon("src/img/Medidas.jpg");
         Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
@@ -149,6 +175,13 @@ public class Conversor extends javax.swing.JFrame {
         TxtOrigenT = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         TxtDestinoT = new javax.swing.JTextArea();
+        Capacidad = new javax.swing.JPanel();
+        CmbDestinoC = new javax.swing.JComboBox<>();
+        CmbOrigenC = new javax.swing.JComboBox<>();
+        TxtOrigenC = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TxtDestinoC = new javax.swing.JTextArea();
+        BtnCapacidad = new javax.swing.JButton();
         BtnTiempo = new javax.swing.JButton();
         BtnPesos = new javax.swing.JButton();
         BtnMedidas = new javax.swing.JButton();
@@ -354,13 +387,88 @@ public class Conversor extends javax.swing.JFrame {
 
         getContentPane().add(Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 380));
 
+        CmbDestinoC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bit (b)", "Byte (B)", "Kilobit (Kb)", "Kilobyte (KB)", "Megabit (Mb)", "Megabyte (MB)", "Gigabit (Gb)", "Gigabyte (GB)", "Terabit (Tb)", "Terabyte (TB)", "Petabit (Pb)", "Petabyte (PB)", "Exabit (Eb)", "Exabyte (EB)", "Zettabit (Zb)", "Zettabyte (ZB)", "Yottabit (Yb)", "Yottabyte (YB)", "Brontobyte (BrB)", "Geopbyte (GpB)" }));
+        CmbDestinoC.setSelectedIndex(5);
+        CmbDestinoC.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CmbDestinoCItemStateChanged(evt);
+            }
+        });
+
+        CmbOrigenC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bit (b)", "Byte (B)", "Kilobit (Kb)", "Kilobyte (KB)", "Megabit (Mb)", "Megabyte (MB)", "Gigabit (Gb)", "Gigabyte (GB)", "Terabit (Tb)", "Terabyte (TB)", "Petabit (Pb)", "Petabyte (PB)", "Exabit (Eb)", "Exabyte (EB)", "Zettabit (Zb)", "Zettabyte (ZB)", "Yottabit (Yb)", "Yottabyte (YB)", "Brontobyte (BrB)", "Geopbyte (GpB)" }));
+        CmbOrigenC.setSelectedIndex(5);
+        CmbOrigenC.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CmbOrigenCItemStateChanged(evt);
+            }
+        });
+
+        TxtOrigenC.setBackground(new java.awt.Color(255, 255, 255));
+        TxtOrigenC.setForeground(new java.awt.Color(65, 65, 65));
+        TxtOrigenC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtOrigenCKeyReleased(evt);
+            }
+        });
+
+        TxtDestinoC.setEditable(false);
+        TxtDestinoC.setBackground(new java.awt.Color(255, 255, 255));
+        TxtDestinoC.setColumns(20);
+        TxtDestinoC.setForeground(new java.awt.Color(65, 65, 65));
+        TxtDestinoC.setLineWrap(true);
+        TxtDestinoC.setRows(5);
+        jScrollPane4.setViewportView(TxtDestinoC);
+
+        javax.swing.GroupLayout CapacidadLayout = new javax.swing.GroupLayout(Capacidad);
+        Capacidad.setLayout(CapacidadLayout);
+        CapacidadLayout.setHorizontalGroup(
+            CapacidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CapacidadLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CapacidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4)
+                    .addComponent(TxtOrigenC, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CmbDestinoC, javax.swing.GroupLayout.Alignment.LEADING, 0, 457, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(CapacidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CapacidadLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(CmbOrigenC, 0, 457, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        CapacidadLayout.setVerticalGroup(
+            CapacidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CapacidadLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(TxtOrigenC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(CmbDestinoC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+            .addGroup(CapacidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CapacidadLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(CmbOrigenC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(324, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 380));
+
+        BtnCapacidad.setText("Capacidad");
+        BtnCapacidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCapacidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 90, -1));
+
         BtnTiempo.setText("Tiempo");
         BtnTiempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTiempoActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 80, -1));
+        getContentPane().add(BtnTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 90, -1));
 
         BtnPesos.setText("Pesos");
         BtnPesos.addActionListener(new java.awt.event.ActionListener() {
@@ -368,7 +476,7 @@ public class Conversor extends javax.swing.JFrame {
                 BtnPesosActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnPesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, -1));
+        getContentPane().add(BtnPesos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 90, -1));
 
         BtnMedidas.setText("Medidas");
         BtnMedidas.addActionListener(new java.awt.event.ActionListener() {
@@ -376,7 +484,7 @@ public class Conversor extends javax.swing.JFrame {
                 BtnMedidasActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnMedidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
+        getContentPane().add(BtnMedidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
 
         BtnVolver1.setText("Volver");
         BtnVolver1.addActionListener(new java.awt.event.ActionListener() {
@@ -418,6 +526,7 @@ public class Conversor extends javax.swing.JFrame {
         Medidas.setVisible(true);
         Pesos.setVisible(false);
         Tiempo.setVisible(false);
+        Capacidad.setVisible(false);
         Reinicio();
     }//GEN-LAST:event_BtnMedidasActionPerformed
 
@@ -425,6 +534,7 @@ public class Conversor extends javax.swing.JFrame {
         Medidas.setVisible(false);
         Pesos.setVisible(true);
         Tiempo.setVisible(false);
+        Capacidad.setVisible(false);
         Reinicio();
     }//GEN-LAST:event_BtnPesosActionPerformed
 
@@ -449,8 +559,29 @@ public class Conversor extends javax.swing.JFrame {
         Medidas.setVisible(false);
         Pesos.setVisible(false);
         Tiempo.setVisible(true);
+        Capacidad.setVisible(false);
         Reinicio();
     }//GEN-LAST:event_BtnTiempoActionPerformed
+
+    private void CmbDestinoCItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CmbDestinoCItemStateChanged
+        conversorCapacidad();
+    }//GEN-LAST:event_CmbDestinoCItemStateChanged
+
+    private void CmbOrigenCItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CmbOrigenCItemStateChanged
+        conversorCapacidad();
+    }//GEN-LAST:event_CmbOrigenCItemStateChanged
+
+    private void TxtOrigenCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtOrigenCKeyReleased
+        conversorCapacidad();
+    }//GEN-LAST:event_TxtOrigenCKeyReleased
+
+    private void BtnCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCapacidadActionPerformed
+        Medidas.setVisible(false);
+        Pesos.setVisible(false);
+        Tiempo.setVisible(false);
+        Capacidad.setVisible(true);
+        Reinicio();
+    }//GEN-LAST:event_BtnCapacidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -505,12 +636,18 @@ public class Conversor extends javax.swing.JFrame {
         TxtDestinoT.setText("");
         CmbOrigenT.setSelectedIndex(5);
         CmbDestinoT.setSelectedIndex(5);
+
+        // Capacidad
+        TxtOrigenC.setText("");
+        TxtDestinoC.setText("");
+        CmbOrigenC.setSelectedIndex(5);
+        CmbDestinoC.setSelectedIndex(5);
     }
 
     public void conversorMedidas() {
         try {
             if (TxtOrigenM.getText().isEmpty()) {
-                TxtDestinoM.setText("0");
+                TxtDestinoM.setText("");
                 return;
             }
             String inputText = TxtOrigenM.getText();
@@ -546,7 +683,7 @@ public class Conversor extends javax.swing.JFrame {
     public void conversorPesos() {
         try {
             if (TxtOrigenP.getText().isEmpty()) {
-                TxtDestinoP.setText("0");
+                TxtDestinoP.setText("");
                 return;
             }
             String inputText = TxtOrigenP.getText();
@@ -582,7 +719,7 @@ public class Conversor extends javax.swing.JFrame {
     public void conversorTiempo() {
         try {
             if (TxtOrigenT.getText().isEmpty()) {
-                TxtDestinoT.setText("0");
+                TxtDestinoT.setText("");
                 return;
             }
             String inputText = TxtOrigenT.getText();
@@ -619,15 +756,55 @@ public class Conversor extends javax.swing.JFrame {
         }
     }
 
+    public void conversorCapacidad() {
+        try {
+            if (TxtOrigenC.getText().isEmpty()) {
+                TxtDestinoC.setText("");
+                return;
+            }
+            String inputText = TxtOrigenC.getText();
+
+            if (!inputText.matches("\\d+")) {
+                TxtDestinoC.setText("Solo se pueden convertir números.");
+                return;
+            }
+
+            int unidadOrigen = CmbOrigenC.getSelectedIndex() + 1;
+            int unidadDestino = CmbDestinoC.getSelectedIndex() + 1;
+
+            BigDecimal factorOrigen = new BigDecimal(unidadCapacidad.get(unidadOrigen));
+            BigDecimal factorDestino = new BigDecimal(unidadCapacidad.get(unidadDestino));
+
+            BigDecimal input = new BigDecimal(inputText);
+
+            BigDecimal resultado = input.multiply(factorOrigen).divide(factorDestino, 50, BigDecimal.ROUND_HALF_UP);
+
+            String resultadoStr = resultado.stripTrailingZeros().toPlainString();
+
+            TxtDestinoC.setText(resultadoStr);
+
+        } catch (NumberFormatException e) {
+            TxtDestinoC.setText("Solo se pueden convertir números.");
+        } catch (ArithmeticException e) {
+            System.out.println("Error: División por infinito.");
+        } catch (Exception e) {
+            System.out.println("Ocurrió un error inesperado: " + e.getMessage());
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCapacidad;
     private javax.swing.JButton BtnMedidas;
     private javax.swing.JButton BtnPesos;
     private javax.swing.JButton BtnTiempo;
     private javax.swing.JButton BtnVolver1;
+    private javax.swing.JPanel Capacidad;
+    private javax.swing.JComboBox<String> CmbDestinoC;
     private javax.swing.JComboBox<String> CmbDestinoM;
     private javax.swing.JComboBox<String> CmbDestinoP;
     private javax.swing.JComboBox<String> CmbDestinoT;
+    private javax.swing.JComboBox<String> CmbOrigenC;
     private javax.swing.JComboBox<String> CmbOrigenM;
     private javax.swing.JComboBox<String> CmbOrigenP;
     private javax.swing.JComboBox<String> CmbOrigenT;
@@ -635,15 +812,18 @@ public class Conversor extends javax.swing.JFrame {
     private javax.swing.JPanel Medidas;
     private javax.swing.JPanel Pesos;
     private javax.swing.JPanel Tiempo;
+    private javax.swing.JTextArea TxtDestinoC;
     private javax.swing.JTextArea TxtDestinoM;
     private javax.swing.JTextArea TxtDestinoP;
     private javax.swing.JTextArea TxtDestinoT;
+    private javax.swing.JTextField TxtOrigenC;
     private javax.swing.JTextField TxtOrigenM;
     private javax.swing.JTextField TxtOrigenP;
     private javax.swing.JTextField TxtOrigenT;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     // End of variables declaration//GEN-END:variables
 
 }

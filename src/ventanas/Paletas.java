@@ -62,8 +62,8 @@ public class Paletas extends javax.swing.JFrame {
         TxtColorR = new javax.swing.JTextField();
         BtnTinte = new javax.swing.JButton();
         BtnMonoCromatico = new javax.swing.JButton();
-        BtnTetradic = new javax.swing.JButton();
-        BtnSquare = new javax.swing.JButton();
+        BtnPentadrico = new javax.swing.JButton();
+        BtnCuadratica = new javax.swing.JButton();
         BtnSombra = new javax.swing.JButton();
         BtnAnalogo = new javax.swing.JButton();
         BtnComplementario = new javax.swing.JButton();
@@ -75,7 +75,7 @@ public class Paletas extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnColor.setBackground(new java.awt.Color(255, 255, 255));
-        BtnColor.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        BtnColor.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         BtnColor.setForeground(new java.awt.Color(0, 0, 0));
         BtnColor.setText("#FFFFFF");
         BtnColor.setBorder(null);
@@ -84,7 +84,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor1.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor1.setBorder(null);
         BtnColor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor1ActionPerformed(evt);
@@ -95,7 +95,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor2.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor2.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor2.setBorder(null);
         BtnColor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor2ActionPerformed(evt);
@@ -106,7 +106,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor3.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor3.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor3.setBorder(null);
         BtnColor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor3ActionPerformed(evt);
@@ -117,7 +117,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor4.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor4.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor4.setBorder(null);
         BtnColor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor4ActionPerformed(evt);
@@ -128,7 +128,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor5.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor5.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor5.setBorder(null);
         BtnColor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor5ActionPerformed(evt);
@@ -139,7 +139,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor6.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor6.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor6.setBorder(null);
         BtnColor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor6ActionPerformed(evt);
@@ -150,7 +150,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor7.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor7.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor7.setBorder(null);
         BtnColor7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor7ActionPerformed(evt);
@@ -161,7 +161,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor8.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor8.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor8.setBorder(null);
         BtnColor8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor8ActionPerformed(evt);
@@ -172,7 +172,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor9.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor9.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor9.setBorder(null);
         BtnColor9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor9ActionPerformed(evt);
@@ -183,7 +183,7 @@ public class Paletas extends javax.swing.JFrame {
         BtnColor10.setBackground(new java.awt.Color(56, 56, 56));
         BtnColor10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnColor10.setForeground(new java.awt.Color(255, 255, 255));
-        BtnColor10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnColor10.setBorder(null);
         BtnColor10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnColor10ActionPerformed(evt);
@@ -198,7 +198,7 @@ public class Paletas extends javax.swing.JFrame {
         TxtInfoB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtInfoB.setText("B");
         TxtInfoB.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxtInfoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 30, 40));
+        getContentPane().add(TxtInfoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 40, 40));
 
         TxxtInfoR.setEditable(false);
         TxxtInfoR.setBackground(new java.awt.Color(51, 51, 51));
@@ -207,7 +207,7 @@ public class Paletas extends javax.swing.JFrame {
         TxxtInfoR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxxtInfoR.setText("R");
         TxxtInfoR.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxxtInfoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 30, 40));
+        getContentPane().add(TxxtInfoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 40, 40));
 
         TxtInfoG.setEditable(false);
         TxtInfoG.setBackground(new java.awt.Color(51, 51, 51));
@@ -216,7 +216,7 @@ public class Paletas extends javax.swing.JFrame {
         TxtInfoG.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtInfoG.setText("G");
         TxtInfoG.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxtInfoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 30, 40));
+        getContentPane().add(TxtInfoG, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 40, 40));
 
         TxtInfoHEX.setEditable(false);
         TxtInfoHEX.setBackground(new java.awt.Color(51, 51, 51));
@@ -225,7 +225,7 @@ public class Paletas extends javax.swing.JFrame {
         TxtInfoHEX.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtInfoHEX.setText("HEX");
         TxtInfoHEX.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxtInfoHEX, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 50, 40));
+        getContentPane().add(TxtInfoHEX, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 40, 40));
 
         TxtColorHex.setBackground(new java.awt.Color(56, 56, 56));
         TxtColorHex.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -237,7 +237,7 @@ public class Paletas extends javax.swing.JFrame {
                 TxtColorHexKeyReleased(evt);
             }
         });
-        getContentPane().add(TxtColorHex, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 80, 40));
+        getContentPane().add(TxtColorHex, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 40));
 
         TxtColorB.setBackground(new java.awt.Color(56, 56, 56));
         TxtColorB.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -249,7 +249,7 @@ public class Paletas extends javax.swing.JFrame {
                 TxtColorBKeyReleased(evt);
             }
         });
-        getContentPane().add(TxtColorB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 100, 40));
+        getContentPane().add(TxtColorB, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 70, 40));
 
         TxtColorG.setBackground(new java.awt.Color(56, 56, 56));
         TxtColorG.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -261,7 +261,7 @@ public class Paletas extends javax.swing.JFrame {
                 TxtColorGKeyReleased(evt);
             }
         });
-        getContentPane().add(TxtColorG, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 100, 40));
+        getContentPane().add(TxtColorG, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 40));
 
         TxtColorR.setBackground(new java.awt.Color(56, 56, 56));
         TxtColorR.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -273,95 +273,103 @@ public class Paletas extends javax.swing.JFrame {
                 TxtColorRKeyReleased(evt);
             }
         });
-        getContentPane().add(TxtColorR, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 100, 40));
+        getContentPane().add(TxtColorR, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 70, 40));
 
         BtnTinte.setBackground(new java.awt.Color(56, 56, 56));
         BtnTinte.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnTinte.setForeground(new java.awt.Color(255, 255, 255));
         BtnTinte.setText("Tinte");
+        BtnTinte.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnTinte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTinteActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnTinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 170, 40));
+        getContentPane().add(BtnTinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 180, 40));
 
         BtnMonoCromatico.setBackground(new java.awt.Color(56, 56, 56));
         BtnMonoCromatico.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnMonoCromatico.setForeground(new java.awt.Color(255, 255, 255));
         BtnMonoCromatico.setText("Monocromatico");
+        BtnMonoCromatico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnMonoCromatico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMonoCromaticoActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnMonoCromatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 170, 40));
+        getContentPane().add(BtnMonoCromatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 180, 40));
 
-        BtnTetradic.setBackground(new java.awt.Color(56, 56, 56));
-        BtnTetradic.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnTetradic.setForeground(new java.awt.Color(255, 255, 255));
-        BtnTetradic.setText("Pentádrico ");
-        BtnTetradic.addActionListener(new java.awt.event.ActionListener() {
+        BtnPentadrico.setBackground(new java.awt.Color(56, 56, 56));
+        BtnPentadrico.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BtnPentadrico.setForeground(new java.awt.Color(255, 255, 255));
+        BtnPentadrico.setText("Pentádrico ");
+        BtnPentadrico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnPentadrico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTetradicActionPerformed(evt);
+                BtnPentadricoActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnTetradic, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 170, 40));
+        getContentPane().add(BtnPentadrico, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 180, 40));
 
-        BtnSquare.setBackground(new java.awt.Color(56, 56, 56));
-        BtnSquare.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        BtnSquare.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSquare.setText("Square");
-        BtnSquare.addActionListener(new java.awt.event.ActionListener() {
+        BtnCuadratica.setBackground(new java.awt.Color(56, 56, 56));
+        BtnCuadratica.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BtnCuadratica.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCuadratica.setText("Cuadernaria");
+        BtnCuadratica.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnCuadratica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSquareActionPerformed(evt);
+                BtnCuadraticaActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnSquare, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 170, 40));
+        getContentPane().add(BtnCuadratica, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 180, 40));
 
         BtnSombra.setBackground(new java.awt.Color(56, 56, 56));
         BtnSombra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnSombra.setForeground(new java.awt.Color(255, 255, 255));
         BtnSombra.setText("Sombras");
+        BtnSombra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnSombra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSombraActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnSombra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 170, 40));
+        getContentPane().add(BtnSombra, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 180, 40));
 
         BtnAnalogo.setBackground(new java.awt.Color(56, 56, 56));
         BtnAnalogo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnAnalogo.setForeground(new java.awt.Color(255, 255, 255));
         BtnAnalogo.setText("Analogo");
+        BtnAnalogo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnAnalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAnalogoActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnAnalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 170, 40));
+        getContentPane().add(BtnAnalogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 180, 40));
 
         BtnComplementario.setBackground(new java.awt.Color(56, 56, 56));
         BtnComplementario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnComplementario.setForeground(new java.awt.Color(255, 255, 255));
         BtnComplementario.setText("Complementario");
+        BtnComplementario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnComplementario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnComplementarioActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnComplementario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 170, 40));
+        getContentPane().add(BtnComplementario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 180, 40));
 
         BtnTriadica.setBackground(new java.awt.Color(56, 56, 56));
         BtnTriadica.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BtnTriadica.setForeground(new java.awt.Color(255, 255, 255));
         BtnTriadica.setText("Triadica");
+        BtnTriadica.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnTriadica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTriadicaActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnTriadica, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 170, 40));
+        getContentPane().add(BtnTriadica, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 180, 40));
 
         BtnVolver1.setText("Volver");
         BtnVolver1.addActionListener(new java.awt.event.ActionListener() {
@@ -434,11 +442,11 @@ public class Paletas extends javax.swing.JFrame {
         ObtenerRGB();
         limpieza();
         float[] HSL = RGBToHSL(R, G, B);
-
-        int[] RGB2 = HSLToRGB(ciclico(HSL[0] + 60), HSL[1], HSL[2]);
-        int[] RGB3 = HSLToRGB(ciclico(HSL[0] + 30), HSL[1], HSL[2]);
-        int[] RGB4 = HSLToRGB(ciclico(HSL[0] - 30), HSL[1], HSL[2]);
-        int[] RGB5 = HSLToRGB(ciclico(HSL[0] - 60), HSL[1], HSL[2]);
+        int rotar = 30;
+        int[] RGB2 = HSLToRGB(ciclico(HSL[0] + (rotar * 2)), HSL[1], HSL[2]);
+        int[] RGB3 = HSLToRGB(ciclico(HSL[0] + rotar), HSL[1], HSL[2]);
+        int[] RGB4 = HSLToRGB(ciclico(HSL[0] - rotar), HSL[1], HSL[2]);
+        int[] RGB5 = HSLToRGB(ciclico(HSL[0] - (rotar * 2)), HSL[1], HSL[2]);
 
         setColorButton(BtnColor1, RGB2[0], RGB2[1], RGB2[2]);
         setButtonForeground(BtnColor1, RGB2[0], RGB2[1], RGB2[2]);
@@ -471,7 +479,7 @@ public class Paletas extends javax.swing.JFrame {
         setColorButton(BtnColor1, R, G, B);
         setButtonForeground(BtnColor1, R, G, B);
 
-        float Negro = HSL[2] / botones.length;
+        float Negro = HSL[2] / (botones.length + 1);
 
         for (int i = 0; i < botones.length; i++) {
             HSL[2] = HSL[2] - Negro;
@@ -530,7 +538,7 @@ public class Paletas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnColor6ActionPerformed
 
-    private void BtnSquareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSquareActionPerformed
+    private void BtnCuadraticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCuadraticaActionPerformed
 
         ObtenerRGB();
         limpieza();
@@ -556,7 +564,7 @@ public class Paletas extends javax.swing.JFrame {
         setColorButton(BtnColor4, RGB4[0], RGB4[1], RGB4[2]);
         setButtonForeground(BtnColor4, RGB4[0], RGB4[1], RGB4[2]);
 
-    }//GEN-LAST:event_BtnSquareActionPerformed
+    }//GEN-LAST:event_BtnCuadraticaActionPerformed
 
     private void BtnTinteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTinteActionPerformed
         ObtenerRGB();
@@ -568,13 +576,13 @@ public class Paletas extends javax.swing.JFrame {
 
         setColorButton(BtnColor1, R, G, B);
         setButtonForeground(BtnColor1, R, G, B);
-        float Blanco = (100 - HSL[2]) / botones.length;
+        float Blanco = (100 - HSL[2]) / (botones.length + 1);
 
         for (int i = 0; i < botones.length; i++) {
-            HSL[2] = ciclico(HSL[2] + Blanco);
+            HSL[2] = HSL[2] + Blanco;
 
-            if (HSL[2] > 360) {
-                HSL[2] = 360;
+            if (HSL[2] > 100) {
+                HSL[2] = 100;
             }
 
             int[] RGB = HSLToRGB(HSL[0], HSL[1], HSL[2]);
@@ -597,14 +605,14 @@ public class Paletas extends javax.swing.JFrame {
 
         setColorButton(BtnColor6, R, G, B);
         setButtonForeground(BtnColor6, R, G, B);
-        float Blanco = (100 - HSLTinte[2]) / botonesTinte.length;
-        float Negro = HSLSombra[2] / botonesSombra.length;
+        float Blanco = (100 - HSLTinte[2]) / (botonesTinte.length + 1);
+        float Negro = HSLSombra[2] / (botonesSombra.length + 1);
 
         for (int i = 0; i < botonesTinte.length; i++) {
-            HSLTinte[2] = ciclico(HSLTinte[2] + Blanco);
+            HSLTinte[2] = HSLTinte[2] + Blanco;
 
-            if (HSLTinte[2] > 360) {
-                HSLTinte[2] = 360;
+            if (HSLTinte[2] > 100) {
+                HSLTinte[2] = 100;
             }
 
             int[] RGB = HSLToRGB(HSLTinte[0], HSLTinte[1], HSLTinte[2]);
@@ -613,7 +621,7 @@ public class Paletas extends javax.swing.JFrame {
             setButtonForeground(botonesTinte[i], RGB[0], RGB[1], RGB[2]);
         }
 
-      for (int i = 0; i < botonesSombra.length; i++) {
+        for (int i = 0; i < botonesSombra.length; i++) {
             HSLSombra[2] = HSLSombra[2] - Negro;
 
             if (HSLSombra[2] < 0) {
@@ -627,20 +635,20 @@ public class Paletas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnMonoCromaticoActionPerformed
 
-    private void BtnTetradicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTetradicActionPerformed
+    private void BtnPentadricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPentadricoActionPerformed
 
         ObtenerRGB();
         limpieza();
         float[] HSL = RGBToHSL(R, G, B);
 
         int rotar = 360 / 5;
-        HSL[0] = (HSL[0] + rotar) % 360;
+        HSL[0] = ciclico(HSL[0] + rotar);
         int[] RGB2 = HSLToRGB(HSL[0], HSL[1], HSL[2]);
-        HSL[0] = (HSL[0] + rotar) % 360;
+        HSL[0] = ciclico(HSL[0] + rotar);
         int[] RGB3 = HSLToRGB(HSL[0], HSL[1], HSL[2]);
-        HSL[0] = (HSL[0] + rotar) % 360;
+        HSL[0] = ciclico(HSL[0] + rotar);
         int[] RGB4 = HSLToRGB(HSL[0], HSL[1], HSL[2]);
-        HSL[0] = (HSL[0] + rotar) % 360;
+        HSL[0] = ciclico(HSL[0] + rotar);
         int[] RGB5 = HSLToRGB(HSL[0], HSL[1], HSL[2]);
 
         setColorButton(BtnColor1, R, G, B);
@@ -657,7 +665,7 @@ public class Paletas extends javax.swing.JFrame {
 
         setColorButton(BtnColor5, RGB5[0], RGB5[1], RGB5[2]);
         setButtonForeground(BtnColor5, RGB5[0], RGB5[1], RGB5[2]);
-    }//GEN-LAST:event_BtnTetradicActionPerformed
+    }//GEN-LAST:event_BtnPentadricoActionPerformed
 
     private void BtnColor7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnColor7ActionPerformed
         if (!BtnColor7.getText().equals("")) {
@@ -806,7 +814,7 @@ public class Paletas extends javax.swing.JFrame {
 
     private void setButtonForeground(JButton btn, int R, int G, int B) {
         int media = ((G * 2) + R + B) / 4;
-        if (media >= 90) {
+        if (media >= 75) {
             btn.setForeground(Color.BLACK);
         } else {
             btn.setForeground(Color.WHITE);
@@ -960,10 +968,10 @@ public class Paletas extends javax.swing.JFrame {
     private javax.swing.JButton BtnColor8;
     private javax.swing.JButton BtnColor9;
     private javax.swing.JButton BtnComplementario;
+    private javax.swing.JButton BtnCuadratica;
     private javax.swing.JButton BtnMonoCromatico;
+    private javax.swing.JButton BtnPentadrico;
     private javax.swing.JButton BtnSombra;
-    private javax.swing.JButton BtnSquare;
-    private javax.swing.JButton BtnTetradic;
     private javax.swing.JButton BtnTinte;
     private javax.swing.JButton BtnTriadica;
     private javax.swing.JButton BtnVolver1;
