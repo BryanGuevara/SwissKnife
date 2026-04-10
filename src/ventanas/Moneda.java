@@ -4,34 +4,46 @@
  */
 package ventanas;
 
+import bryanDev.util.config.GlobalStyle;
 import java.awt.Image;
 import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author MINEDUCYT
  */
 public class Moneda extends javax.swing.JFrame {
-
+    
     int cara = 0;
     int cruz = 0;
-
+    GlobalStyle global = new GlobalStyle();
+    DefaultTableModel model = new DefaultTableModel();
+    
     public Moneda() {
         initComponents();
-
-        setTitle("Cara o Corona");
-        this.setLocationRelativeTo(null);
-
+        global.Frame().configureFrame(this, "Randomizador", "");
+        global.Button().style(BtnMoneda);
+        global.TextField().style(TxtCara);
+        global.TextField().style(TxtInfoCara);
+        global.TextField().style(TxtDado);
+        global.TextField().style(TxtInfoDado);
+        global.TextField().style(TxtInfoMax);
+        global.TextField().style(TxtInfoMin);
+        global.Table().style(jTable1, jScrollPane1, model, new String[]{"Resultado"});
+        
+        TxtInfoCara.setFocusable(false);
+        TxtInfoDado.setFocusable(false);
+        TxtInfoMax.setFocusable(false);
+        TxtInfoMin.setFocusable(false);
+        
         ImageIcon wallpaper = new ImageIcon("src/img/Coin.jpg");
         Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
                 LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));
-
+        
         LabelWallpaper.setIcon(icon);
-
-        TxtCruz.setText(cruz + " :Cruz");
-        TxtCara.setText("Cara: " + cara);
     }
 
     /**
@@ -43,98 +55,148 @@ public class Moneda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BtnVolver3 = new javax.swing.JButton();
         BtnMoneda = new javax.swing.JButton();
-        TxtLanzamiento = new javax.swing.JTextField();
-        TxtCruz = new javax.swing.JTextField();
+        TxtInfoMax = new javax.swing.JTextField();
+        TxtInfoMin = new javax.swing.JTextField();
+        TxtDado = new javax.swing.JTextField();
+        TxtInfoDado = new javax.swing.JTextField();
         TxtCara = new javax.swing.JTextField();
-        BtnVolver = new javax.swing.JButton();
+        TxtInfoCara = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnVolver3.setBackground(new java.awt.Color(51, 51, 51));
+        BtnVolver3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnVolver3.setForeground(new java.awt.Color(255, 0, 0));
+        BtnVolver3.setText("X");
+        BtnVolver3.setBorder(null);
+        BtnVolver3.setBorderPainted(false);
+        BtnVolver3.setContentAreaFilled(false);
+        BtnVolver3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolver3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnVolver3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 40, 40));
+
         BtnMoneda.setBackground(new java.awt.Color(56, 56, 56));
         BtnMoneda.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         BtnMoneda.setForeground(new java.awt.Color(255, 255, 255));
-        BtnMoneda.setText("Clic");
+        BtnMoneda.setText("Lanzar");
         BtnMoneda.setToolTipText("");
         BtnMoneda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnMonedaActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnMoneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 217, 217));
+        getContentPane().add(BtnMoneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 217, 217));
 
-        TxtLanzamiento.setEditable(false);
-        TxtLanzamiento.setBackground(new java.awt.Color(56, 56, 56));
-        TxtLanzamiento.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        TxtLanzamiento.setForeground(new java.awt.Color(255, 255, 255));
-        TxtLanzamiento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtLanzamiento.setText("Aun no se lanza la moneda");
-        getContentPane().add(TxtLanzamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 280, 40));
+        TxtInfoMax.setEditable(false);
+        TxtInfoMax.setBackground(new java.awt.Color(56, 56, 56));
+        TxtInfoMax.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtInfoMax.setForeground(new java.awt.Color(255, 255, 255));
+        TxtInfoMax.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        TxtInfoMax.setText(":Maximo");
+        getContentPane().add(TxtInfoMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 130, 40));
 
-        TxtCruz.setEditable(false);
-        TxtCruz.setBackground(new java.awt.Color(56, 56, 56));
-        TxtCruz.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        TxtCruz.setForeground(new java.awt.Color(255, 255, 255));
-        TxtCruz.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        TxtCruz.setText(":Cruz");
-        getContentPane().add(TxtCruz, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 129, 40));
+        TxtInfoMin.setEditable(false);
+        TxtInfoMin.setBackground(new java.awt.Color(56, 56, 56));
+        TxtInfoMin.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtInfoMin.setForeground(new java.awt.Color(255, 255, 255));
+        TxtInfoMin.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtInfoMin.setText("Minimo:");
+        getContentPane().add(TxtInfoMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 130, 40));
 
-        TxtCara.setEditable(false);
+        TxtDado.setBackground(new java.awt.Color(56, 56, 56));
+        TxtDado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtDado.setForeground(new java.awt.Color(255, 255, 255));
+        TxtDado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(TxtDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 60, 40));
+
+        TxtInfoDado.setEditable(false);
+        TxtInfoDado.setBackground(new java.awt.Color(56, 56, 56));
+        TxtInfoDado.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtInfoDado.setForeground(new java.awt.Color(255, 255, 255));
+        TxtInfoDado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        TxtInfoDado.setText(":Dados");
+        getContentPane().add(TxtInfoDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 70, 40));
+
         TxtCara.setBackground(new java.awt.Color(56, 56, 56));
         TxtCara.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         TxtCara.setForeground(new java.awt.Color(255, 255, 255));
-        TxtCara.setText("Cara:");
-        getContentPane().add(TxtCara, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 129, 40));
+        TxtCara.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(TxtCara, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 240, 60, 40));
 
-        BtnVolver.setText("Volver");
-        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVolverActionPerformed(evt);
+        TxtInfoCara.setEditable(false);
+        TxtInfoCara.setBackground(new java.awt.Color(56, 56, 56));
+        TxtInfoCara.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        TxtInfoCara.setForeground(new java.awt.Color(255, 255, 255));
+        TxtInfoCara.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtInfoCara.setText("Caras:");
+        getContentPane().add(TxtInfoCara, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 70, 40));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 6, 75, -1));
-        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 380));
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 10, 180, 310));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMonedaActionPerformed
-
-        Random random = new Random();
-        int numero = random.nextInt(2);
-        String Resultado = "";
-        BtnMoneda.setText("");
-
-        BtnMoneda.setOpaque(false);
-        BtnMoneda.setContentAreaFilled(false);
-        BtnMoneda.setBorderPainted(false);
-        BtnMoneda.setFocusPainted(false);
-        if (numero == 1) {
-            cara++;
-            TxtCara.setText("Cara: " + cara);
-            TxtLanzamiento.setText("Lanzamiento "+(cara+cruz)+": Cara");
-            Resultado = "Cara";
-        } else if (numero == 0) {
-            cruz++;
-            TxtCruz.setText(cruz + " :Cruz");
-            TxtLanzamiento.setText("Lanzamiento "+(cara+cruz)+": Cruz");
-            Resultado = "Cruz";
+        
+        if (TxtCara.getText().isEmpty() || TxtDado.getText().isEmpty()) {
+            return;
         }
-
-        ImageIcon moneda = new ImageIcon("src/img/" + Resultado + ".png");
-        Icon caraCorona = new ImageIcon(moneda.getImage().getScaledInstance(BtnMoneda.getWidth(),
-                BtnMoneda.getHeight(), Image.SCALE_DEFAULT));
-
-        BtnMoneda.setIcon(caraCorona);
+        
+        int caras = Integer.parseInt(TxtCara.getText());
+        int dados = Integer.parseInt(TxtDado.getText());
+        
+        model.setRowCount(0);
+        cara = 0;
+        cruz = 0;
+        
+        if (caras == 0 || dados == 0) {
+            TxtInfoMin.setText("Min: 0");
+            TxtInfoMax.setText("0 :Max");
+            return;
+        }
+        
+        TxtInfoMin.setText("Min: " + dados);
+        TxtInfoMax.setText((dados * caras) + " :Max");
+        
+        if (caras <= 1) {
+            return;
+        } else if (caras == 2) {
+            LanzamientoMoneda(dados);
+            
+        } else {
+            LanzamientoDado(dados, caras);
+        }
+        
 
     }//GEN-LAST:event_BtnMonedaActionPerformed
 
-    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+    private void BtnVolver3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolver3ActionPerformed
         new Inicio().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_BtnVolverActionPerformed
+    }//GEN-LAST:event_BtnVolver3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,13 +233,63 @@ public class Moneda extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void LanzamientoMoneda(int monedas) {
+        Random random = new Random();
+        int numero;
+        
+        for (int i = 0; i < monedas; i++) {
+            numero = random.nextInt(2);
+            if (numero == 1) {
+                cara++;
+                global.Table().addRowTable(model, new String[][]{{(i + 1) + ": Cara"}});
+            } else if (numero == 0) {
+                cruz++;
+                global.Table().addRowTable(model, new String[][]{{(i + 1) + ": Cruz"}});
+            }
+        }
+        
+        TxtInfoMin.setText("Cara: " + cara);
+        TxtInfoMax.setText(cruz + " :Cruz");
+        
+    }
+    
+    public void LanzamientoDado(int dados, int caras) {
+        int valor = 0;
+        Random numDado = new Random();
+        
+        if (caras <= 0 || dados <= 0) {
+            System.out.println("Error: el numero de dados y caras debe ser mayor a cero.");
+            return;
+        }
+        
+        for (int i = 0; i < dados; i++) {
+            int tirada = numDado.nextInt(caras) + 1;
+            global.Table().addRowTable(model, new String[][]{{"Dado " + (i + 1) + ": " + tirada}});
+            valor += tirada;
+        }
+        
+        global.Table().addRowTable(model,
+                new String[][]{{"Tirada " + dados + "D" + caras + ": " + valor}});
+        
+        BtnMoneda.setText(dados + "D" + caras);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnMoneda;
     private javax.swing.JButton BtnVolver;
+    private javax.swing.JButton BtnVolver1;
+    private javax.swing.JButton BtnVolver2;
+    private javax.swing.JButton BtnVolver3;
     private javax.swing.JLabel LabelWallpaper;
     private javax.swing.JTextField TxtCara;
-    private javax.swing.JTextField TxtCruz;
-    private javax.swing.JTextField TxtLanzamiento;
+    private javax.swing.JTextField TxtDado;
+    private javax.swing.JTextField TxtInfoCara;
+    private javax.swing.JTextField TxtInfoDado;
+    private javax.swing.JTextField TxtInfoMax;
+    private javax.swing.JTextField TxtInfoMin;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

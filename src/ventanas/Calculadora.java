@@ -5,9 +5,11 @@
  */
 package ventanas;
 
+import bryanDev.util.config.GlobalStyle;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,9 +23,8 @@ public class Calculadora extends javax.swing.JFrame {
     public String Operador;
     int igual = 0;
 
-    /**
-     * Creates new form Calculadora
-     */
+    GlobalStyle global = new GlobalStyle();
+
     public Calculadora() {
         initComponents();
 
@@ -36,6 +37,10 @@ public class Calculadora extends javax.swing.JFrame {
                 LabelWallpaper.getHeight(), Image.SCALE_DEFAULT));
 
         LabelWallpaper.setIcon(icon);
+
+        global.Button().styleArray(
+                new JButton[]{Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8, Button9,
+                    ButtonDividir, ButtonIgual, ButtonLimpiar, ButtonMenos, ButtonMultiplicar, ButtonPunto, ButtonSumar});
 
         this.repaint();
 
@@ -68,9 +73,9 @@ public class Calculadora extends javax.swing.JFrame {
         Button9 = new javax.swing.JButton();
         ButtonPunto = new javax.swing.JButton();
         TxtPantalla = new javax.swing.JLabel();
-        BtnVolver = new javax.swing.JButton();
         TxtAnterior = new javax.swing.JTextField();
         TxtOperador = new javax.swing.JTextField();
+        BtnVolver = new javax.swing.JButton();
         LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -289,14 +294,6 @@ public class Calculadora extends javax.swing.JFrame {
         TxtPantalla.setOpaque(true);
         getContentPane().add(TxtPantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 290, 60));
 
-        BtnVolver.setText("Volver");
-        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVolverActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 10, 75, -1));
-
         TxtAnterior.setEditable(false);
         TxtAnterior.setBackground(new java.awt.Color(56, 56, 56));
         TxtAnterior.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
@@ -312,7 +309,21 @@ public class Calculadora extends javax.swing.JFrame {
         TxtOperador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtOperador.setBorder(null);
         getContentPane().add(TxtOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 40, 30));
-        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 480));
+
+        BtnVolver.setBackground(new java.awt.Color(51, 51, 51));
+        BtnVolver.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnVolver.setForeground(new java.awt.Color(255, 0, 0));
+        BtnVolver.setText("X");
+        BtnVolver.setBorder(null);
+        BtnVolver.setBorderPainted(false);
+        BtnVolver.setContentAreaFilled(false);
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 40, 30));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -442,7 +453,11 @@ public class Calculadora extends javax.swing.JFrame {
     private void ButtonSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSumarActionPerformed
 
         if (TxtAnterior.getText().isEmpty()) {
-            this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            if (TxtPantalla.getText().isEmpty()) {
+                this.N1 = 0;
+            } else {
+                this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            }
         } else {
             Operacion();
         }
@@ -468,7 +483,11 @@ public class Calculadora extends javax.swing.JFrame {
     private void ButtonDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDividirActionPerformed
 
         if (TxtAnterior.getText().isEmpty()) {
-            this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            if (TxtPantalla.getText().isEmpty()) {
+                this.N1 = 0;
+            } else {
+                this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            }
         } else {
             Operacion();
         }
@@ -482,7 +501,11 @@ public class Calculadora extends javax.swing.JFrame {
     private void ButtonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMultiplicarActionPerformed
 
         if (TxtAnterior.getText().isEmpty()) {
-            this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            if (TxtPantalla.getText().isEmpty()) {
+                this.N1 = 0;
+            } else {
+                this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            }
         } else {
             Operacion();
         }
@@ -496,7 +519,11 @@ public class Calculadora extends javax.swing.JFrame {
     private void ButtonMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenosActionPerformed
 
         if (TxtAnterior.getText().isEmpty()) {
-            this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            if (TxtPantalla.getText().isEmpty()) {
+                this.N1 = 0;
+            } else {
+                this.N1 = Float.parseFloat(this.TxtPantalla.getText());
+            }
         } else {
             Operacion();
         }
@@ -565,15 +592,15 @@ public class Calculadora extends javax.swing.JFrame {
     }
 
     public void Operacion() {
-        
+
         if (this.TxtAnterior.getText().isEmpty()) {
             return;
         }
-        
+
         if (this.TxtPantalla.getText().isEmpty()) {
             return;
         }
-        
+
         this.N2 = Float.parseFloat(this.TxtPantalla.getText());
         if (this.Operador.equals("+")) {
             this.N1 = this.N1 + this.N2;

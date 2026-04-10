@@ -8,6 +8,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import bryanDev.util.config.GlobalStyle;
 
 /**
  *
@@ -16,22 +17,32 @@ import javax.swing.JFrame;
 public class Inicio extends javax.swing.JFrame {
 
     int ID = 1;
+    String ruta = "src/img/";
     OpcionVentana[] opcionesVentanas = {
-        new OpcionVentana("Calculadora", "Calculadora sencilla", "src/img/Calculadora.jpg", "src/img/calculadoraIcon.png", Calculadora.class),
-        new OpcionVentana("Conversor", "Conversor de unidades", "src/img/Medidas.jpg", "src/img/medidasIcon.png", Conversor.class),
-        new OpcionVentana("Cara o Cruz", "Lanza una moneda al aire", "src/img/Coin.jpg", "src/img/coinIco.png", Moneda.class),
-        new OpcionVentana("Visualizador", "Visualizador de HTML", "src/img/Visualizador.jpg", "src/img/visualizadorIco.png", Visualizador.class),
-        new OpcionVentana("Encuentra", "Adivina el numero que genero la pc", "src/img/Encontrar.jpg", "src/img/encontrarIco.png", Encontrar.class),
-        new OpcionVentana("Repetidor", "Repite una frase muechas veces", "src/img/Repetir.jpg", "src/img/Repetir.png", Repetidor.class),
-        new OpcionVentana("Paletas", "Arma paletas de colores", "src/img/Paleta.jpg", "src/img/paleta.png", Paletas.class),
-        new OpcionVentana("MathMixer", "Funciones matematicas", "src/img/Mathmixer.jpg", "src/img/mathmiexer.png", MathMixer.class),
-        new OpcionVentana("Información de la app", "Notas de Versión", "src/img/Info.jpg", "", Info.class)
+        new OpcionVentana("Calculadora", "Calculadora sencilla", ruta + "Calculadora.jpg", ruta + "calculadoraIcon.png", Calculadora.class),
+        new OpcionVentana("Conversor", "Conversor de unidades", ruta + "Medidas.jpg", ruta + "medidasIcon.png", Conversor.class),
+        new OpcionVentana("Cara o Cruz", "Lanza una moneda al aire", ruta + "Coin.jpg", ruta + "coinIco.png", Moneda.class),
+        new OpcionVentana("Visualizador", "Visualizador de HTML", ruta + "Visualizador.jpg", ruta + "visualizadorIco.png", Visualizador.class),
+        new OpcionVentana("Encuentra", "Adivina el numero", ruta + "Encontrar.jpg", ruta + "encontrarIco.png", Encontrar.class),
+        new OpcionVentana("Repetidor", "Repite una frase", ruta + "Repetir.jpg", ruta + "Repetir.png", Repetidor.class),
+        new OpcionVentana("Paletas", "Arma paletas de colores", ruta + "Paleta.jpg", ruta + "paleta.png", Paletas.class),
+        new OpcionVentana("MathMixer", "Funciones matematicas", ruta + "Mathmixer.jpg", ruta + "mathmixer.png", MathMixer.class),
+        new OpcionVentana("Información de la app", "Notas de Versión", ruta + "Info.jpg", "", Info.class)
     };
+
+    GlobalStyle global = new GlobalStyle();
 
     public Inicio() {
         initComponents();
         this.setLocationRelativeTo(null);
         actualizarBoton();
+
+        global.TextField().style(TxtDescripcion);
+        global.Button().style(BtnAccion);
+        global.Button().style(BtnAvanzar);
+        global.Button().style(BtnRetroceder);
+
+        TxtDescripcion.setFocusable(false);
     }
 
     /**
@@ -89,7 +100,7 @@ public class Inicio extends javax.swing.JFrame {
         TxtDescripcion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         TxtDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         TxtDescripcion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TxtDescripcion.setText("Descripcion de la app");
+        TxtDescripcion.setText("Descripcion de la applicación");
         TxtDescripcion.setBorder(null);
         getContentPane().add(TxtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 270, 30));
         getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 310));
@@ -134,7 +145,6 @@ public class Inicio extends javax.swing.JFrame {
         if (ID >= 1 && ID <= opcionesVentanas.length) {
             BtnAccion.setText(opcionesVentanas[ID - 1].getNombre());
             TxtDescripcion.setText(opcionesVentanas[ID - 1].getDescripcion());
-            this.setTitle(opcionesVentanas[ID - 1].getNombre());
 
             ImageIcon wallpaper = new ImageIcon(opcionesVentanas[ID - 1].getWallpaper());
             Icon icon = new ImageIcon(wallpaper.getImage().getScaledInstance(LabelWallpaper.getWidth(),
@@ -147,6 +157,9 @@ public class Inicio extends javax.swing.JFrame {
                     60, 60, Image.SCALE_DEFAULT));
 
             BtnAccion.setIcon(iconoEscalado);
+
+            global.Frame().configureFrame(this, opcionesVentanas[ID - 1].getNombre(),"");
+            
         } else {
             throw new IllegalArgumentException("ID no válido: " + ID);
         }

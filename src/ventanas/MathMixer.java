@@ -53,6 +53,7 @@ public class MathMixer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BtnVolver = new javax.swing.JButton();
         CmbOperacion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableResultados = new javax.swing.JTable();
@@ -64,11 +65,24 @@ public class MathMixer extends javax.swing.JFrame {
         TxtInstruccion1 = new javax.swing.JTextField();
         BtnEjecutar = new javax.swing.JButton();
         BtnInterrumpir = new javax.swing.JButton();
-        BtnVolver1 = new javax.swing.JButton();
         LabelWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnVolver.setBackground(new java.awt.Color(51, 51, 51));
+        BtnVolver.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnVolver.setForeground(new java.awt.Color(255, 0, 0));
+        BtnVolver.setText("X");
+        BtnVolver.setBorder(null);
+        BtnVolver.setBorderPainted(false);
+        BtnVolver.setContentAreaFilled(false);
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
 
         CmbOperacion.setBackground(new java.awt.Color(56, 56, 56));
         CmbOperacion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -80,7 +94,7 @@ public class MathMixer extends javax.swing.JFrame {
                 CmbOperacionItemStateChanged(evt);
             }
         });
-        getContentPane().add(CmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 500, 50));
+        getContentPane().add(CmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 460, 50));
 
         TableResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,21 +109,21 @@ public class MathMixer extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableResultados);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 260, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 270, 410));
 
         TxtEntrada1.setBackground(new java.awt.Color(56, 56, 56));
         TxtEntrada1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         TxtEntrada1.setForeground(new java.awt.Color(255, 255, 255));
         TxtEntrada1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtEntrada1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxtEntrada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 250, 50));
+        getContentPane().add(TxtEntrada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 250, 50));
 
         TxtEntrada2.setBackground(new java.awt.Color(56, 56, 56));
         TxtEntrada2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         TxtEntrada2.setForeground(new java.awt.Color(255, 255, 255));
         TxtEntrada2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TxtEntrada2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxtEntrada2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 250, 50));
+        getContentPane().add(TxtEntrada2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 250, 50));
 
         AreaResultado.setEditable(false);
         AreaResultado.setBackground(new java.awt.Color(56, 56, 56));
@@ -121,7 +135,7 @@ public class MathMixer extends javax.swing.JFrame {
         AreaResultado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane2.setViewportView(AreaResultado);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 500, 220));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 500, 220));
 
         TxtInstruccion2.setEditable(false);
         TxtInstruccion2.setBackground(new java.awt.Color(56, 56, 56));
@@ -129,7 +143,7 @@ public class MathMixer extends javax.swing.JFrame {
         TxtInstruccion2.setForeground(new java.awt.Color(255, 255, 255));
         TxtInstruccion2.setText("Hasta donde debe llegar");
         TxtInstruccion2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxtInstruccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 250, -1));
+        getContentPane().add(TxtInstruccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 250, -1));
 
         TxtInstruccion1.setEditable(false);
         TxtInstruccion1.setBackground(new java.awt.Color(56, 56, 56));
@@ -137,7 +151,7 @@ public class MathMixer extends javax.swing.JFrame {
         TxtInstruccion1.setForeground(new java.awt.Color(255, 255, 255));
         TxtInstruccion1.setText("Ingrese cual tabla quiere");
         TxtInstruccion1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(TxtInstruccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 250, -1));
+        getContentPane().add(TxtInstruccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 250, -1));
 
         BtnEjecutar.setBackground(new java.awt.Color(56, 56, 56));
         BtnEjecutar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -149,7 +163,7 @@ public class MathMixer extends javax.swing.JFrame {
                 BtnEjecutarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnEjecutar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 250, 40));
+        getContentPane().add(BtnEjecutar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 250, 40));
 
         BtnInterrumpir.setBackground(new java.awt.Color(56, 56, 56));
         BtnInterrumpir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -161,16 +175,8 @@ public class MathMixer extends javax.swing.JFrame {
                 BtnInterrumpirActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnInterrumpir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 250, 40));
-
-        BtnVolver1.setText("Volver");
-        BtnVolver1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnVolver1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(BtnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 20));
-        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 460));
+        getContentPane().add(BtnInterrumpir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 250, 40));
+        getContentPane().add(LabelWallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -235,10 +241,10 @@ public class MathMixer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnInterrumpirActionPerformed
 
-    private void BtnVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolver1ActionPerformed
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
         new Inicio().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_BtnVolver1ActionPerformed
+    }//GEN-LAST:event_BtnVolverActionPerformed
 
     private void limpiar() {
 
@@ -571,7 +577,7 @@ public class MathMixer extends javax.swing.JFrame {
     private javax.swing.JTextArea AreaResultado;
     private javax.swing.JButton BtnEjecutar;
     private javax.swing.JButton BtnInterrumpir;
-    private javax.swing.JButton BtnVolver1;
+    private javax.swing.JButton BtnVolver;
     private javax.swing.JComboBox<String> CmbOperacion;
     private javax.swing.JLabel LabelWallpaper;
     private javax.swing.JTable TableResultados;

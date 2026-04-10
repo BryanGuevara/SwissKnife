@@ -16,10 +16,6 @@ import org.commonmark.node.Node;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.jsoup.Jsoup;
 
-/**
- *
- * @author MINEDUCYT
- */
 public class Visualizador extends javax.swing.JFrame {
 
     /**
